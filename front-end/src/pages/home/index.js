@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '/Users/abobb/Desktop/UP_Tracker/front-end/src/logo.png'
+import logo from '../../logo.png'
 import './style.css'
 
 const Home = () => {
