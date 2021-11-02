@@ -1,0 +1,98 @@
+.trackingInfo .buttons {
+  width: 325px;
+  margin: auto;
+}
+
+.buttons .left p {
+  color: #6246EA;
+}
+
+.buttons .right p {
+  color: #E45858;
+}
+
+.rect {
+  width: 325px;
+  height: 200px;
+  background: #f4effc;
+  border-radius: 20px;
+  margin: auto;
+  
+}
+
+.rectContent {
+  padding: 20px;
+  position: relative;
+}
+
+.trackingInfo p {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  color: #2B2C34;
+}
+
+.redColorBold {
+  color: #E45858;
+  font-weight: 600;
+}
+
+.left {
+  text-align: left; 
+  width:49%; 
+  display: inline-block;
+}
+
+.right {
+  text-align: right; 
+  width:50%;  
+  display: inline-block;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  background-color: #2B2C34;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.trackingHistoryPreview {
+  position: relative;
+  top: 15px;
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 600;
+}
+
+.detailsBtn {
+  position: absolute;
+  top: 155px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 16px !important;
+}
+
+
+@media (min-width: 768px) {
+  .rect {
+    width: 1225px;
+    height: 325px;
+  }
+
+  .trackingInfo p {
+    font-size: 24px;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+    text-align: right;
+  }
+}
