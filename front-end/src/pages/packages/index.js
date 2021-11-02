@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style.css'
+import Header from '../../components/BootstrapNavbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Packages = () => {
-    useEffect(() => {
-        document.title = 'packages';
-    });
     return (
-        <div>
-            <h1>packages</h1>
-            <p>This is the packages page...</p>
+        <div className="App">
+            <Header/>
+            <header className="App-header">
+                Packages
+            </header>
         </div>
     );
 };
