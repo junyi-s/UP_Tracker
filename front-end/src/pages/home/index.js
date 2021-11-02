@@ -1,18 +1,15 @@
 import React from 'react';
-import logo from '../../logo.png'
 import './style.css'
+import 'react-awesome-button/dist/styles.css'
+import Header from '../../components/BootstrapNavbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
     return (
         <div className="App">
+            <Header/>
             <header className="App-header">
-                <img src={logo} alt="Logo" width="330" />
-                <p>
-                    Homepage
-                </p>
-                <a href="about" >About</a>
-                <a href="login" >Login</a>
-                <a href="packages" >Packages</a>
+                
             </header>
         </div>
     );
