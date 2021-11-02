@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style.css'
+import Header from '../../components/BootstrapNavbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const About = () => {
-    useEffect(() => {
-        document.title = 'about';
-    });
     return (
-        <div>
-            <h1>about</h1>
-            <p>This is the about page...</p>
+        <div className="App">
+            <Header/>
+            <header className="App-header">
+                About
+            </header>
         </div>
     );
 };

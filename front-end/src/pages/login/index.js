@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style.css'
+import Header from '../../components/BootstrapNavbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Login = () => {
-    useEffect(() => {
-        document.title = 'login';
-    });
     return (
-        <div>
-            <h1>Login</h1>
-            <p>This is the login page...</p>
+        <div className="App">
+            <Header/>
+            <header className="App-header">
+                Login
+            </header>
         </div>
     );
 };

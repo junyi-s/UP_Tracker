@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css'
-import 'react-awesome-button/dist/styles.css'
 import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +8,7 @@ const Home = () => {
         <div className="App">
             <Header/>
             <header className="App-header">
-                
+                Homepage
             </header>
         </div>
     );
