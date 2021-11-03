@@ -8,7 +8,6 @@ const Home = () => {
         <div className="App">
             <Header/>
             <header className="App-header">
-                Homepage
             </header>
         </div>
     );
