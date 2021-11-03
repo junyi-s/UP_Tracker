@@ -7,7 +7,7 @@ const Header = () => {
         <div>
             <Navbar bg="dark" expand="lg" variant="dark" className="py-2">
                 <a class="navbar-brand" href="/">
-                    <img src={Logo} width="60" height="60" alt=""/>
+                    <img src={Logo} width="60" height="60" alt="" />
                 </a>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,10 +21,13 @@ const Header = () => {
                         <Nav.Link className="nav" href="/About">
                             About
                         </Nav.Link>
-                        <Nav.Link className="nav" href="/login">
-                            Login
-                        </Nav.Link>
                     </Nav>
+                    <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" href="/login">Login</a>
+                                </div>
+                            </li>
+                        </ul>
                 </Navbar.Collapse>
             </Navbar>
         </div>
