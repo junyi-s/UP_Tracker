@@ -1,34 +1,37 @@
 import React from 'react'
-import { Navbar, Nav } from "react-bootstrap";
 import Logo from '../logo.png'
 import './styles.css'
 const Header = () => {
     return (
         <div>
-            <Navbar bg="dark" expand="lg" variant="dark" className="py-2">
+            <nav class="navbar navbar-expand-md navbar-light fixed-top">
                 <a class="navbar-brand" href="/">
-                    <img src={Logo} width="60" height="60" alt=""/>
+                    <img src={Logo} width="180" height="40" alt="" />
                 </a>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="m-auto topnav" >
-                        <Nav.Link className="nav" href="/" style={{ color: "#feb633" }}>
-                            Home
-                        </Nav.Link>
-                        <Nav.Link className="nav" href="/packages">
-                            Packages
-                        </Nav.Link>
-                        <Nav.Link className="nav" href="/About">
-                            About
-                        </Nav.Link>
-                        <Nav.Link className="nav" href="/login">
-                            Login
-                        </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav justify-content-around" >
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/packages">Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav  navbar-right">
+                    <li>
+                        <div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" href="/login">Login</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
 };
-
 export default Header;

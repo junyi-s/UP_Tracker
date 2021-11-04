@@ -1,4 +1,6 @@
-.App-header{
-    background-color: RGB(193,154,108);
-  }
-  
+.App-header {
+  align-items: left;
+}
+.App {
+  text-align: left;
+}
