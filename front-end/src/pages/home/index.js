@@ -8,9 +8,7 @@ const Home = () => {
     return (
         <div className="App">
             <Header/>
-
-            </header>
-            
+            <SimpleForm/>
         </div>
     );
 };
