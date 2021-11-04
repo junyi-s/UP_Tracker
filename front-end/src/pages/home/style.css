@@ -6,6 +6,21 @@
     width: 200px;
   }
 .App-header{
-  
+
 }
-.container { margin-top: 20px;}
+
+/* p{
+  font-size: 50px;
+ }
+ #track_btn{
+  text-align: center;
+  
+ }
+ #track_text{
+  text-align: left;
+ } */
+
+ .container { 
+  margin-top: 200px;
+
+}

@@ -2,12 +2,14 @@ import React from 'react';
 import './style.css'
 import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TrackingInfo from '../../components/trackingInfo';
+
 const Packages = () => {
     return (
-        <div className="App">
+        <div className="Packages-Page">
             <Header/>
             <header className="App-header">
-                Packages
+                <TrackingInfo />
             </header>
         </div>
     );
