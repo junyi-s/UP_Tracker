@@ -6,12 +6,11 @@ import TrackingInfo from '../../components/trackingInfo';
 
 const Packages = () => {
     return (
-        <div className="App">
+        <div className="Packages-Page">
             <Header/>
             <header className="App-header">
-                Packages
+                <TrackingInfo />
             </header>
-            <TrackingInfo />
         </div>
     );
 };
