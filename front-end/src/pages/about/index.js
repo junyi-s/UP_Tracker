@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const About = () => {
     return (
         <div className="App">
-            <Header/>
             <header className="App-header">
                 About
             </header>

@@ -7,8 +7,9 @@ import SimpleForm from '../../components/SimpleForm';
 const Home = () => {
     return (
         <div className="App">
-            <Header/>
+            <header className="App-header">
             <SimpleForm/>
+            </header>
         </div>
     );
 };
