@@ -1,6 +1,18 @@
-.m-auto{
-    height: 50px;
-}
+
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #8064A2 !important;
+}
+.navbar-light{
+    background-color: #0e67b5 !important;
+}
+.nav-link{
+    color: white !important;
+    align-items: center;
+}
+ .navbar-nav {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
