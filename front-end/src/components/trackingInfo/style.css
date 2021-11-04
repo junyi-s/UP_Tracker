@@ -4,7 +4,7 @@
 }
 
 .buttons .left p {
-  color: #6246ea;
+  color: #0E67B5;
 }
 
 .buttons .right p {
@@ -14,7 +14,7 @@
 .rect {
   width: 325px;
   height: 200px;
-  background: #f4effc;
+  background: #B7D6F1;
   border-radius: 20px;
   margin: auto;
 }
@@ -170,13 +170,13 @@
   }
 
   .progressStep:after {
-    background-color: #b5b5b8;
+    background-color: #F2F1EB;
   }
 
   .circle {
     height: 25px;
     width: 25px;
-    background-color: #b5b5b8;
+    background-color: #F2F1EB;
   }
 
   .progressStep.completed .circle {

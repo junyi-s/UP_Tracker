@@ -8,8 +8,7 @@ const Packages = () => {
     });
     return (
         <div>
-            <h1>packages</h1>
-            <p>This is the packages page...</p>
+            <h1>My Packages</h1>
             <TrackingInfo />
         </div>
     );

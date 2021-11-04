@@ -15,7 +15,7 @@ const TrackingInfo = () => {
                 position: "relative",
                 top: "2px",
                 left: "3px",
-                color: "#6246EA",
+                color: "#0E67B5",
               }}
             />
           </p>
