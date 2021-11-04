@@ -8,4 +8,13 @@
 .App-header{
   background-color: RGB(193,154,108);
 }
+p{
+  font-size: 50px;
+}
+#track_btn{
+  text-align: center;
 
+}
+#track_text{
+  text-align: left;
+}
