@@ -16,3 +16,13 @@
     transform: translateX(-50%);
     text-align: center;
 }
+.footer{
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #0e67b5 !important;
+    color: white !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }

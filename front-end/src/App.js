@@ -4,6 +4,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import Login from './pages/login';
 import Packages from './pages/packages';
+import Footer from './components/footer'
 function App() {
   return (
     <div>
@@ -22,6 +23,7 @@ function App() {
           <Packages />
         </Route>
       </BrowserRouter>
+      <Footer/>
     </div>
 
   );
