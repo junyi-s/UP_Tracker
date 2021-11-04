@@ -9,7 +9,6 @@ const Login = () => {
 
     return (
         <div className="App">
-            <Header/>
             <div className = "App-header">
                 <Form.Group size="lg" controlId="email">
                     <Form.Label>Email</Form.Label>
