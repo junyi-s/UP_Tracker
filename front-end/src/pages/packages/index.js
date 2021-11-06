@@ -7,7 +7,6 @@ import TrackingInfo from '../../components/trackingInfo';
 const Packages = () => {
     return (
         <div className="Packages-Page">
-            <Header/>
             <header className="App-header">
                 <TrackingInfo />
             </header>

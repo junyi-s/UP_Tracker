@@ -32,7 +32,6 @@ const Login = () => {
 
     return (
         <div className="App">
-            <Header/>
             <div className = "App-header">
                 <Form horizontal onSubmit={handleSubmit}>
                 <Form.Label>Welcome Back</Form.Label>

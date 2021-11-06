@@ -6,6 +6,7 @@ import Login from './pages/login';
 import Packages from './pages/packages';
 import SignUp from './pages/signup';
 import Footer from './components/footer'
+import Header from './components/BootstrapNavbar';
 function App() {
   return (
     <div>
@@ -28,6 +29,7 @@ function App() {
         </Route>
       </BrowserRouter>
       <Footer/>
+      <Header/>
     </div>
 
   );
