@@ -4,6 +4,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import Login from './pages/login';
 import Packages from './pages/packages';
+import SignUp from './pages/signup';
 import Footer from './components/footer'
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/packages">
           <Packages />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
       </BrowserRouter>
       <Footer/>

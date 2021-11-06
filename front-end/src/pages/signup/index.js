@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import {Form, Col, Row} from "react-bootstrap";
-import './style.css'
+import {Form} from "react-bootstrap";
 import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [rePassword, setRePassword] = useState("");
 
     const Button = styled.button`
         background-color: #2196f3;
@@ -27,15 +26,22 @@ const Login = () => {
 
     function handleSubmit(event){
         event.preventDefault();
+        confirmPassword();
         alert("Email: " + email + "\nPassword: " + password);
     }
+    function confirmPassword(){
+        if (password !== rePassword) alert("passwords are not the same");
+    }
+    // function validateForm(){
+
+    // }
 
     return (
         <div className="App">
             <Header/>
             <div className = "App-header">
                 <Form horizontal onSubmit={handleSubmit}>
-                <Form.Label>Welcome Back</Form.Label>
+                <Form.Label>Create a new account</Form.Label>
                     <Form.Group size="lg" controlId="email">
                         <Form.Control
                             placeholder= "Email"
@@ -52,20 +58,21 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Row>
-                        <Col md = "auto">
-                            <Button type="submit">
-                                Login
-                            </Button>
-                        </Col>
-                        <Col>
-                            <Link to = './signup'> Don't have an account yet? </Link>
-                        </Col>
-                    </Row>
+                    <Form.Group size="lg" controlId="password">
+                        <Form.Control
+                            placeholder="Re-enter password"
+                            type = "password"
+                            value = {rePassword}
+                            onChange={(e) => setRePassword(e.target.value)}
+                        />
+                    </Form.Group>
+                        <Button type="submit">
+                            Sign Up
+                        </Button>
                 </Form>
             </div>
 
         </div>
     );
 };
-export default Login;
+export default SignUp;

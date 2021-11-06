@@ -1,6 +1,22 @@
 .App-header {
-  align-items: left;
+  font-size: calc(10px + 1vmin);
 }
+
+.App-header form{
+  min-width: 400px;
+}
+
+.App-header input{
+  margin: 7px 0px;
+  border-radius: 1px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.App-header label{
+  margin: 0px 0px;
+}
+
 .App {
   text-align: left;
 }
