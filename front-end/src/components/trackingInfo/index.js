@@ -1,8 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { FaRegBookmark, FaTimes, FaChevronDown, FaPen } from "react-icons/fa";
+import {
+  FaRegBookmark,
+  FaTimes,
+  FaChevronDown,
+  FaChevronUp,
+  FaPen,
+} from "react-icons/fa";
 
 const TrackingInfo = () => {
+  const [openDetail, setOpenDetail] = useState(false);
+
+  const toggleDetails = () => {
+    setOpenDetail(!openDetail);
+  };
+
+  const changeArrow = () => {
+    if (openDetail) {
+      return [
+        <FaChevronUp
+          style={{
+            position: "relative",
+            left: "3px",
+            color: "#2B2C34",
+          }}
+        />,
+      ];
+    } else {
+      return [
+        <FaChevronDown
+          style={{
+            position: "relative",
+            left: "3px",
+            color: "#2B2C34",
+          }}
+        />,
+      ];
+    }
+  };
+
   return (
     <div className="trackingInfo">
       {/* Buttons on top of the tracking info */}
@@ -36,7 +72,10 @@ const TrackingInfo = () => {
       </div>
 
       {/* Tracking Info */}
-      <div className="rect">
+      <div
+        className={"rect minimizeDetails " + (openDetail ? "open" : "")}
+        onClick={() => toggleDetails()}
+      >
         <div className="rectContent">
           <div className="leftDesk">
             <p>
@@ -90,16 +129,13 @@ const TrackingInfo = () => {
             </ul>
           </div>
 
+          <div className="expandDetails">
+            <img src="/mobile_map.png" className="mapImg" />
+          </div>
+
           <p className="detailsBtn">
-            View Details
-            <FaChevronDown
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#2B2C34",
-              }}
-            />
+            {openDetail ? "Hide Details" : "View Details"}
+            {changeArrow()}
           </p>
         </div>
       </div>
