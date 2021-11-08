@@ -131,6 +131,64 @@ const TrackingInfo = () => {
 
           <div className="expandDetails">
             <img src="/mobile_map.png" className="mapImg" />
+            <p>Tracking History</p>
+            <ul className="progressTrackerVert">
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>Oct 25 6:56 pm</p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    Arrived at USPS Regional Facility DALLAS TX NETWORK
+                    DISTRIBUTION CENTER{" "}
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>Oct 25 6:36 pm</p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    Departed USPS Regional Facility DALLAS TX LOGISTICS CENTER
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>Oct 25</p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>In Transit to Next Facility</p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>Oct 25 6:09 pm</p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    Arrived at USPS Regional Facility DALLAS TX LOGISTICS CENTER
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>Oct 24 7:19 am</p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    Departed USPS Regional Facility QUEENS NY DISTRIBUTION
+                    CENTER{" "}
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <p className="detailsBtn">

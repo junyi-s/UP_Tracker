@@ -83,11 +83,11 @@
   display: none;
 }
 
-.minimizeDetails {
+/* .minimizeDetails {
   transition: all 0.4s ease;
-}
+} */
 
-.expandDetails .mapImg {
+.mapImg {
   position: relative;
   width: 254px;
   height: 152px;
@@ -96,17 +96,20 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+}
+
+.expandDetails {
   opacity: 0;
   max-height: 0;
   overflow-y: hidden;
 }
 
 .expandDetails {
-  transition: all 0.4s ease-out;
+  /* transition: all 0.4s ease-out; */
   margin-bottom: 50px;
 }
 
-.minimizeDetails.open .mapImg {
+.minimizeDetails.open .expandDetails {
   opacity: 1;
   max-height: 1000px;
 }
@@ -178,7 +181,7 @@
     display: block;
   }
 
-  .progressTracker {
+.progressTracker {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -189,7 +192,7 @@
     padding: 40px 80px;
   }
 
-  .progressStep {
+.progressStep {
     display: block;
     position: relative;
     margin: 0;
@@ -197,11 +200,11 @@
     min-width: 50%;
   }
 
-  .progressStep.completed:after {
+.progressStep.completed:after {
     background-color: #2b2c34;
   }
 
-  .progressStep:not(:last-child):after {
+.progressStep:not(:last-child):after {
     content: "";
     display: block;
     position: absolute;
@@ -213,41 +216,41 @@
     z-index: 0;
   }
 
-  .progressStep:after {
+.progressStep:after {
     background-color: #F2F1EB;
   }
 
-  .circle {
+.circle {
     height: 25px;
     width: 25px;
     background-color: #F2F1EB;
   }
 
-  .progressStep.completed .circle {
+.progressStep.completed .circle {
     background-color: #2b2c34;
   }
 
-  .progressStep.active .circle {
+.progressStep.active .circle {
     position: relative;
     background-color: #2b2c34;
     z-index: 100;
   }
 
-  .progressStep.completed .label {
+.progressStep.completed .label {
     margin-top: 0;
     width: 130px;
     margin-left: -50px;
     text-align: center;
   }
 
-  .progressStep.active .label {
+.progressStep.active .label {
     margin-top: 0;
     width: 130px;
     margin-left: -50px;
     text-align: center;
   }
 
-  .label p {
+.label p {
     font-size: 18px;
     font-weight: 600;
   }
