@@ -131,60 +131,85 @@ const TrackingInfo = () => {
 
           <div className="expandDetails">
             <img src="/mobile_map.png" className="mapImg" />
-            <p>Tracking History</p>
+            <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
               <li className="progressStepVert">
                 <div className="labelLeftVert">
-                  <p>Oct 25 6:56 pm</p>
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:56 pm
+                  </p>
                 </div>
                 <span className="circleVert"></span>
+
                 <div className="labelVert">
                   <p>
-                    Arrived at USPS Regional Facility DALLAS TX NETWORK
-                    DISTRIBUTION CENTER{" "}
+                    <span className="semiBold">
+                      Arrived at USPS Regional Facility
+                    </span>{" "}
+                    DALLAS TX NETWORK DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
               </li>
               <li className="progressStepVert">
                 <div className="labelLeftVert">
-                  <p>Oct 25 6:36 pm</p>
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:36 pm
+                  </p>
                 </div>
                 <span className="circleVert"></span>
                 <div className="labelVert">
                   <p>
-                    Departed USPS Regional Facility DALLAS TX LOGISTICS CENTER
+                    <span className="semiBold">
+                      Departed USPS Regional Facility
+                    </span>{" "}
+                    DALLAS TX LOGISTICS CENTER
                   </p>
                 </div>
               </li>
               <li className="progressStepVert">
                 <div className="labelLeftVert">
-                  <p>Oct 25</p>
-                </div>
-                <span className="circleVert"></span>
-                <div className="labelVert">
-                  <p>In Transit to Next Facility</p>
-                </div>
-              </li>
-              <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>Oct 25 6:09 pm</p>
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span>
+                  </p>
                 </div>
                 <span className="circleVert"></span>
                 <div className="labelVert">
                   <p>
-                    Arrived at USPS Regional Facility DALLAS TX LOGISTICS CENTER
+                    <span className="semiBold">
+                      In Transit to Next Facility
+                    </span>
                   </p>
                 </div>
               </li>
               <li className="progressStepVert">
                 <div className="labelLeftVert">
-                  <p>Oct 24 7:19 am</p>
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:09 pm
+                  </p>
                 </div>
                 <span className="circleVert"></span>
                 <div className="labelVert">
                   <p>
-                    Departed USPS Regional Facility QUEENS NY DISTRIBUTION
-                    CENTER{" "}
+                    <span className="semiBold">
+                      Arrived at USPS Regional Facility
+                    </span>{" "}
+                    DALLAS TX LOGISTICS CENTER
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 24</span> 7:19 am
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      Departed USPS Regional Facility
+                    </span>{" "}
+                    QUEENS NY DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
               </li>
