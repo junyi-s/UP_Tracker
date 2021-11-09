@@ -130,7 +130,7 @@ const TrackingInfo = () => {
           </div>
 
           <div className="expandDetails">
-            <img src="/mobile_map.png" className="mapImg" />
+            <img src="/desktop_map.png" className="mapImg" />
             <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
               <li className="progressStepVert">
@@ -145,7 +145,7 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Arrived at USPS Regional Facility
-                    </span>{" "}
+                    </span><br/>
                     DALLAS TX NETWORK DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
@@ -161,7 +161,7 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Departed USPS Regional Facility
-                    </span>{" "}
+                    </span><br/>
                     DALLAS TX LOGISTICS CENTER
                   </p>
                 </div>
@@ -192,7 +192,7 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Arrived at USPS Regional Facility
-                    </span>{" "}
+                    </span><br/>
                     DALLAS TX LOGISTICS CENTER
                   </p>
                 </div>
@@ -208,7 +208,7 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Departed USPS Regional Facility
-                    </span>{" "}
+                    </span><br/>
                     QUEENS NY DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
