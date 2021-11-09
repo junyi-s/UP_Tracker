@@ -74,7 +74,7 @@ const TrackingInfo = () => {
       {/* Tracking Info */}
       <div
         className={"rect minimizeDetails " + (openDetail ? "open" : "")}
-        onClick={() => toggleDetails()}
+
       >
         <div className="rectContent">
           <div className="leftDesk">
@@ -216,9 +216,10 @@ const TrackingInfo = () => {
             </ul>
           </div>
 
-          <p className="detailsBtn">
+          <p className="detailsBtn" onClick={() => toggleDetails()}>
             {openDetail ? "Hide Details" : "View Details"}
             {changeArrow()}
+            
           </p>
         </div>
       </div>
