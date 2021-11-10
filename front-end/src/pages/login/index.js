@@ -24,6 +24,16 @@ const Login = () => {
             background-color: #0d47a1;
         }
         `;
+    const StyledLink = styled(Link)`
+        color: #2196f3;
+        margin: 7px 0px;
+        transition: ease color 200ms;
+        font-size: 16px;
+
+        &:hover{
+            color: #0d47a1;
+        }
+    `;
 
     function handleSubmit(event){
         event.preventDefault();
@@ -58,7 +68,7 @@ const Login = () => {
                             </Button>
                         </Col>
                         <Col>
-                            <Link to = './signup'> Don't have an account yet? </Link>
+                            <StyledLink to = './signup'> Don't have an account yet? </StyledLink>
                         </Col>
                     </Row>
                 </Form>
