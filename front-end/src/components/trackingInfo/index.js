@@ -72,10 +72,7 @@ const TrackingInfo = () => {
       </div>
 
       {/* Tracking Info */}
-      <div
-        className={"rect minimizeDetails " + (openDetail ? "open" : "")}
-
-      >
+      <div className={"rect minimizeDetails " + (openDetail ? "open" : "")}>
         <div className="rectContent">
           <div className="leftDesk">
             <p>
@@ -145,7 +142,8 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Arrived at USPS Regional Facility
-                    </span><br/>
+                    </span>
+                    <br />
                     DALLAS TX NETWORK DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
@@ -161,7 +159,8 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Departed USPS Regional Facility
-                    </span><br/>
+                    </span>
+                    <br />
                     DALLAS TX LOGISTICS CENTER
                   </p>
                 </div>
@@ -192,7 +191,8 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Arrived at USPS Regional Facility
-                    </span><br/>
+                    </span>
+                    <br />
                     DALLAS TX LOGISTICS CENTER
                   </p>
                 </div>
@@ -208,7 +208,8 @@ const TrackingInfo = () => {
                   <p>
                     <span className="semiBold">
                       Departed USPS Regional Facility
-                    </span><br/>
+                    </span>
+                    <br />
                     QUEENS NY DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
@@ -219,7 +220,6 @@ const TrackingInfo = () => {
           <p className="detailsBtn" onClick={() => toggleDetails()}>
             {openDetail ? "Hide Details" : "View Details"}
             {changeArrow()}
-            
           </p>
         </div>
       </div>
