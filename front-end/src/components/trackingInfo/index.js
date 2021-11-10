@@ -1,8 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { FaRegBookmark, FaTimes, FaChevronDown, FaPen } from "react-icons/fa";
+import {
+  FaRegBookmark,
+  FaTimes,
+  FaChevronDown,
+  FaChevronUp,
+  FaPen,
+} from "react-icons/fa";
 
 const TrackingInfo = () => {
+  const [openDetail, setOpenDetail] = useState(false);
+
+  const toggleDetails = () => {
+    setOpenDetail(!openDetail);
+  };
+
+  const changeArrow = () => {
+    if (openDetail) {
+      return [
+        <FaChevronUp
+          style={{
+            position: "relative",
+            left: "3px",
+            color: "#2B2C34",
+          }}
+        />,
+      ];
+    } else {
+      return [
+        <FaChevronDown
+          style={{
+            position: "relative",
+            left: "3px",
+            color: "#2B2C34",
+          }}
+        />,
+      ];
+    }
+  };
+
   return (
     <div className="trackingInfo">
       {/* Buttons on top of the tracking info */}
@@ -36,7 +72,7 @@ const TrackingInfo = () => {
       </div>
 
       {/* Tracking Info */}
-      <div className="rect">
+      <div className={"rect minimizeDetails " + (openDetail ? "open" : "")}>
         <div className="rectContent">
           <div className="leftDesk">
             <p>
@@ -90,16 +126,100 @@ const TrackingInfo = () => {
             </ul>
           </div>
 
-          <p className="detailsBtn">
-            View Details
-            <FaChevronDown
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#2B2C34",
-              }}
-            />
+          <div className="expandDetails">
+            <img src="/desktop_map.png" className="mapImg" />
+            <p className="trackingTitle">Tracking History</p>
+            <ul className="progressTrackerVert">
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:56 pm
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      Arrived at USPS Regional Facility
+                    </span>
+                    <br />
+                    DALLAS TX NETWORK DISTRIBUTION CENTER{" "}
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:36 pm
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      Departed USPS Regional Facility
+                    </span>
+                    <br />
+                    DALLAS TX LOGISTICS CENTER
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span>
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      In Transit to Next Facility
+                    </span>
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 25</span> 6:09 pm
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      Arrived at USPS Regional Facility
+                    </span>
+                    <br />
+                    DALLAS TX LOGISTICS CENTER
+                  </p>
+                </div>
+              </li>
+              <li className="progressStepVert">
+                <div className="labelLeftVert">
+                  <p>
+                    <span className="darkBlue semiBold">Oct 24</span> 7:19 am
+                  </p>
+                </div>
+                <span className="circleVert"></span>
+                <div className="labelVert">
+                  <p>
+                    <span className="semiBold">
+                      Departed USPS Regional Facility
+                    </span>
+                    <br />
+                    QUEENS NY DISTRIBUTION CENTER{" "}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p className="detailsBtn" onClick={() => toggleDetails()}>
+            {openDetail ? "Hide Details" : "View Details"}
+            {changeArrow()}
           </p>
         </div>
       </div>
