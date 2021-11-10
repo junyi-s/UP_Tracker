@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import './style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TrackingInfo from '../../components/trackingInfo';
 
 const Home = () => {
     const [value, changevalue] = useState("");
     const [name, changename] = useState("");
+    const [show, setShow] = useState(false);
+
     function handleChange(event) {
         changevalue(event.target.value);
     }
 
     function change() {
         changename(value);
+        setShow(true);
     }
     return (
         <div className="App">
@@ -28,6 +32,7 @@ const Home = () => {
                 <p>
                     Your tracking number is: {name}
                 </p>
+                {show && name && <TrackingInfo/>}
             </header>
         </div>
     );
