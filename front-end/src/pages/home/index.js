@@ -19,20 +19,32 @@ const Home = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <header className="form">
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="Enter tracking number"
-                    />
-                </header>
-                <header classname="button">
-                    <button onClick={change}>Submit</button>
-                </header>
-                <p>
-                    Your tracking number is: {name}
-                </p>
-                {show && name && <TrackingInfo/>}
+                <div class ="container overflow-hidden">
+                    <div class="row r1">
+                        <div class="col-md-8">
+                            <header className="form">
+                                <input
+                                    onChange={handleChange}
+                                    type="text"
+                                    placeholder="Enter tracking number"
+                                />
+                            </header>
+                        </div>
+                        <div class="col-md-4">
+                            <header classname="button">
+                                <button onClick={change}>Submit</button>
+                            </header>
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <p>
+                            Your tracking number is: {name}
+                        </p>
+                    </div>
+                    <div class ="row r3">
+                        {show && name && <TrackingInfo/>}
+                    </div>
+                </div>
             </header>
         </div>
     );
