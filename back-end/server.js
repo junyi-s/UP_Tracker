@@ -1,7 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const trackingRouter = require("./routes/trackingRoute");
 
 const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use("/api/tracking", trackingRouter);
 
 app.get('/api/customers', cors(), (req, res) => {
   const customers = [

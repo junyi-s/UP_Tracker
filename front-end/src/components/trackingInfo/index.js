@@ -8,8 +8,10 @@ import {
   FaPen,
 } from "react-icons/fa";
 
-const TrackingInfo = () => {
+const TrackingInfo = (props) => {
   const [openDetail, setOpenDetail] = useState(false);
+
+  let trackingHistory = props.details.checkpoints;
 
   const toggleDetails = () => {
     setOpenDetail(!openDetail);
@@ -87,34 +89,41 @@ const TrackingInfo = () => {
                 }}
               />
             </p>
-            <p className="mobile">USPS: 9400109205568018651239</p>
+
+            {/* Mobile view */}
+            <p className="mobile">{`USPS: ${props.details.tracking_number}`}</p>
+
             <p>
               Expected Delivery Date:{" "}
-              <span className="redColorBold">October 27</span>
+              <span className="redColorBold">{props.details.expected_delivery}</span>
             </p>
           </div>
+
           <div className="rightDesk">
-            <p className="desktop">Tracking Number: 9400109205568018651239</p>
+            <p className="desktop">{`Tracking Number: ${props.details.tracking_number}`}</p>
             <p className="desktop">Carrier: USPS</p>
           </div>
+
+          {/* Mobile view */}
           <span className="circle mobile"></span>
           <div className="trackingHistoryPreview mobile">
             <p>In Transit - DALLAS, TX</p>
             <p>Arrived at USPS Regional Facility</p>
           </div>
-
+          
+          {/* desktop view */}
           <div className="desktop shipmentHistory">
             <ul className="progressTracker">
               <li className="progressStep completed">
                 <span className="circle"></span>
                 <div className="label">
-                  <p>Origin - BROOKLYN, NY</p>
+                  <p>{`Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
                 </div>
               </li>
               <li className="progressStep active">
                 <span className="circle"></span>
                 <div className="label">
-                  <p>In Transit - DALLAS, TX</p>
+                  <p>{`In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}`}</p>
                 </div>
               </li>
               <li className="progressStep">
@@ -130,7 +139,32 @@ const TrackingInfo = () => {
             <img src="/desktop_map.png" className="mapImg" />
             <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
-              <li className="progressStepVert">
+
+              {
+                trackingHistory.map((info) => (
+                  <li className="progressStepVert">
+                    <div className="labelLeftVert">
+                      <p>
+                        <span className="darkBlue semiBold">{info.checkpoint_time}</span>
+                      </p>
+                    </div>
+                    <span className="circleVert"></span>
+
+                    <div className="labelVert">
+                      <p>
+                        <span className="semiBold">
+                          {info.message}
+                        </span>
+                        <br />
+                        {info.location}{" "}
+                      </p>
+                    </div>
+                  </li>
+                ))
+              }
+
+
+              {/* <li className="progressStepVert">
                 <div className="labelLeftVert">
                   <p>
                     <span className="darkBlue semiBold">Oct 25</span> 6:56 pm
@@ -213,7 +247,7 @@ const TrackingInfo = () => {
                     QUEENS NY DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 

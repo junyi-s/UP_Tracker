@@ -78,6 +78,9 @@ margin-left: 15%;
   padding-left: 200px;
 }
 
+.r3 {
+  text-align: initial !important;
+}
 
 .App .App-header{
   padding-top: 90px;
