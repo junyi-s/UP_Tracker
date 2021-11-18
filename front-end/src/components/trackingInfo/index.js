@@ -139,7 +139,32 @@ const TrackingInfo = (props) => {
             <img src="/desktop_map.png" className="mapImg" />
             <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
-              <li className="progressStepVert">
+
+              {
+                trackingHistory.map((info) => (
+                  <li className="progressStepVert">
+                    <div className="labelLeftVert">
+                      <p>
+                        <span className="darkBlue semiBold">{info.checkpoint_time}</span>
+                      </p>
+                    </div>
+                    <span className="circleVert"></span>
+
+                    <div className="labelVert">
+                      <p>
+                        <span className="semiBold">
+                          {info.message}
+                        </span>
+                        <br />
+                        {info.location}{" "}
+                      </p>
+                    </div>
+                  </li>
+                ))
+              }
+
+
+              {/* <li className="progressStepVert">
                 <div className="labelLeftVert">
                   <p>
                     <span className="darkBlue semiBold">Oct 25</span> 6:56 pm
@@ -222,7 +247,7 @@ const TrackingInfo = (props) => {
                     QUEENS NY DISTRIBUTION CENTER{" "}
                   </p>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 

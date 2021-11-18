@@ -28,10 +28,21 @@ const Home = () => {
       );
   }
 
-  function change() {
+  // const createTracking = async () => {
+  //   await axios.post(`${apiURL}/tracking/` + value).then(
+  //     (response) => {
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+function change() {
     changename(value);
     setShow(true);
-    console.log(value);
+    // createTracking();
 
     axios.get(`${apiURL}/tracking/` + value).then(
       (response) => {
@@ -44,6 +55,7 @@ const Home = () => {
     );
 
     console.log(trackingData);
+    
 
     if (trackingData === []) {
       
