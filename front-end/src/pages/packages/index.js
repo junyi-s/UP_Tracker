@@ -8,7 +8,7 @@ const Packages = () => {
     return (
         <div className="Packages-Page">
             <header className="App-header">
-                <TrackingInfo />
+                {/* <TrackingInfo /> */}
             </header>
         </div>
     );

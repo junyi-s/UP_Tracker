@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import {Form} from "react-bootstrap";
+import {Form, Col, Row} from "react-bootstrap";
 import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -24,6 +25,17 @@ const SignUp = () => {
         }
         `;
 
+    const StyledLink = styled(Link)`
+        color: #2196f3;
+        margin: 7px 0px;
+        transition: ease color 200ms;
+        font-size: 16px;
+
+        &:hover{
+            color: #0d47a1;
+        }
+    `;
+
     function handleSubmit(event){
         event.preventDefault();
         confirmPassword();
@@ -38,7 +50,6 @@ const SignUp = () => {
 
     return (
         <div className="App">
-            <Header/>
             <div className = "App-header">
                 <Form horizontal onSubmit={handleSubmit}>
                 <Form.Label>Create a new account</Form.Label>
@@ -66,9 +77,16 @@ const SignUp = () => {
                             onChange={(e) => setRePassword(e.target.value)}
                         />
                     </Form.Group>
-                        <Button type="submit">
-                            Sign Up
-                        </Button>
+                    <Row>
+                        <Col md = "auto">
+                            <Button type="submit">
+                                Sign Up
+                            </Button>
+                        </Col>
+                        <Col>
+                            <StyledLink to = './login'> Already have an account?</StyledLink>
+                        </Col>
+                    </Row>
                 </Form>
             </div>
 
