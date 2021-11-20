@@ -2,15 +2,11 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import {Form, Col, Row} from "react-bootstrap";
 import './style.css'
-import Header from '../../components/BootstrapNavbar';
+// import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 
-const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const Button = styled.button`
+const Button = styled.button`
         background-color: #2196f3;
         color: white;
         padding: 2px 15px;
@@ -35,9 +31,19 @@ const Login = () => {
         }
     `;
 
+const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errors] = useState({});
+
     function handleSubmit(event){
         event.preventDefault();
-        alert("Email: " + email + "\nPassword: " + password);
+        
+        const userData = {
+            email: email,
+            password: password
+          };
+      console.log(userData.email);
     }
 
     return (
@@ -50,6 +56,7 @@ const Login = () => {
                             placeholder= "Email"
                             type = "email"
                             value={email}
+                            error = {errors.email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </Form.Group>
@@ -58,6 +65,7 @@ const Login = () => {
                             placeholder="Password"
                             type = "password"
                             value = {password}
+                            error = {errors.password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </Form.Group>

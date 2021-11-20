@@ -1,16 +1,11 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {Form, Col, Row} from "react-bootstrap";
-import Header from '../../components/BootstrapNavbar';
+// import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 
-const SignUp = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [rePassword, setRePassword] = useState("");
-
-    const Button = styled.button`
+const Button = styled.button`
         background-color: #2196f3;
         color: white;
         padding: 2px 15px;
@@ -19,7 +14,7 @@ const SignUp = () => {
         text-transform: uppercase;
         margin: 4px 0px;
         transition: ease background-color 400ms;
-        
+
         &:hover {
             background-color: #0d47a1;
         }
@@ -36,28 +31,44 @@ const SignUp = () => {
         }
     `;
 
+const SignUp = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [password2, setPassword2] = useState("");
+    const [errors] = useState({});
+
     function handleSubmit(event){
         event.preventDefault();
-        confirmPassword();
-        alert("Email: " + email + "\nPassword: " + password);
+        const newUser = {
+            name: name,
+            email: email,
+            password: password,
+            password2: password2
+          };
+      console.log("hello "+ newUser.email);
     }
-    function confirmPassword(){
-        if (password !== rePassword) alert("passwords are not the same");
-    }
-    // function validateForm(){
 
-    // }
-
-    return (
+    return(
         <div className="App">
             <div className = "App-header">
                 <Form horizontal onSubmit={handleSubmit}>
                 <Form.Label>Create a new account</Form.Label>
+                    <Form.Group size="lg" controlId="name">
+                        <Form.Control
+                            placeholder="Name"
+                            type = "text"
+                            value = {name}
+                            error = {errors.name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </Form.Group>
                     <Form.Group size="lg" controlId="email">
                         <Form.Control
                             placeholder= "Email"
                             type = "email"
                             value={email}
+                            error = {errors.email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </Form.Group>
@@ -66,15 +77,17 @@ const SignUp = () => {
                             placeholder="Password"
                             type = "password"
                             value = {password}
+                            error = {errors.password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group size="lg" controlId="password">
+                    <Form.Group size="lg" controlId="password2">
                         <Form.Control
                             placeholder="Re-enter password"
                             type = "password"
-                            value = {rePassword}
-                            onChange={(e) => setRePassword(e.target.value)}
+                            value = {password2}
+                            error = {errors.password2}
+                            onChange={(e) => setPassword2(e.target.value)}
                         />
                     </Form.Group>
                     <Row>
