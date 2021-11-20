@@ -7,8 +7,11 @@ import Packages from './pages/packages';
 import SignUp from './pages/signup';
 import Footer from './components/footer'
 import Header from './components/BootstrapNavbar';
+import {Provider} from "react-redux";
+import store from "./store";
 function App() {
   return (
+    <Provider store={store}>
     <div>
       <BrowserRouter>
         <Route exact path="/" component={Home} />
@@ -31,6 +34,7 @@ function App() {
       <Footer/>
       <Header/>
     </div>
+    </Provider>
 
   );
 }
