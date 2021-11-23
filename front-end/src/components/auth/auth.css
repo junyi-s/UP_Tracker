@@ -1,0 +1,58 @@
+#email {
+    border: 1px solid black;
+    background-color: white;
+    width: 600px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+  }
+  #password {
+    border: 1px solid black;
+    background-color: white;
+    width: 600px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+  }
+  #name {
+    border: 1px solid black;
+    background-color: white;
+    width: 600px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+  }
+  #password2{
+    border: 1px solid black;
+    background-color: white;
+    width: 600px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+  }
+  
+  
