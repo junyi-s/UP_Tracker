@@ -108,7 +108,7 @@
 
 .minimizeDetails.open .expandDetails {
   opacity: 1;
-  max-height: 1000px;
+  max-height: 3000px;
 }
 
 .minimizeDetails.open {
@@ -220,7 +220,7 @@
 
   .rect {
     width: 950px;
-    height: 300px;
+    height: auto;
   }
 
   .rectContent {
@@ -238,7 +238,8 @@
 
   .detailsBtn {
     position: absolute;
-    top: 245px;
+    top: auto;
+    bottom: 20px;
     font-size: 22px !important;
   }
 

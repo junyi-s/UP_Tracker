@@ -15,7 +15,8 @@ const Home = () => {
   function handleChange(event) {
     changevalue(event.target.value);
   }
-  async function change() {
+  
+  function change() {
     changename(value);
     setShow(true);
 
