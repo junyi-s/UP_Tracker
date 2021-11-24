@@ -1,10 +1,20 @@
 const router = require("express").Router();
 const { AfterShip } = require("aftership");
-const aftership = new AfterShip("3a57fe0a-8fcc-4193-8a7e-21932793ed18");
+const aftership = new AfterShip("821accc0-6f95-4897-92c7-d941f019ff4b", {
+  endpoint: "https://api.aftership.com/v4",
+});
 
 router.get("/:trackingNum", async (req, res) => {
-  console.log(req.params.trackingNum);
-  aftership.tracking
+  console.log("Get " + req.params.trackingNum);
+
+  const payload = {
+    tracking: {
+      slug: "usps",
+      tracking_number: req.params.trackingNum,
+    },
+  };
+
+  await aftership.tracking
     .getTracking({
       slug: "usps",
       tracking_number: req.params.trackingNum,
@@ -13,32 +23,36 @@ router.get("/:trackingNum", async (req, res) => {
       console.log(result);
       res.send(result);
     })
-    .catch((err) => {
+    .catch(async (err) => {
       console.log(err);
-      res.send();
+      await aftership.tracking
+        .createTracking(payload)
+        .then(async (result) => {
+          console.log("POSTED");
+          console.log(result);
+
+          // wait a bit before calling another get
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+
+          aftership.tracking
+            .getTracking({
+              slug: "usps",
+              tracking_number: req.params.trackingNum,
+            })
+            .then((result) => {
+              console.log(result);
+              res.send(result);
+            })
+            .catch((err) => {
+              console.log(err);
+              res.send("Does not exist");
+            });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     });
 });
 
-router.post("/:trackingNum", async (req, res) => {
-  console.log("Post " + req.params.trackingNum);
-  const payload = {
-    tracking: {
-      slug: "usps",
-      tracking_number: req.params.trackingNum,
-    },
-  };
-  aftership.tracking
-    .createTracking(payload)
-    .then((result) => {
-      console.log(result)
-      res.send("Done")
-    })
-    .catch((e) => {
-      console.log(e)
-      res.send("Exists")
-      if (e.code === 4003) {
-      }
-    });
-});
 
 module.exports = router;
