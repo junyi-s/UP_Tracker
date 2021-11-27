@@ -2,15 +2,11 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import {Form, Col, Row} from "react-bootstrap";
 import './style.css'
-import Header from '../../components/BootstrapNavbar';
+// import Header from '../../components/BootstrapNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
-
-const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const Button = styled.button`
+import Logins from '../../components/auth/Login'
+const Button = styled.button`
         background-color: #2196f3;
         color: white;
         padding: 2px 15px;
@@ -35,43 +31,14 @@ const Login = () => {
         }
     `;
 
-    function handleSubmit(event){
-        event.preventDefault();
-        alert("Email: " + email + "\nPassword: " + password);
-    }
-
+const Login = () => {
+    
     return (
         <div className="App">
             <div className = "App-header">
-                <Form horizontal onSubmit={handleSubmit}>
-                <Form.Label>Welcome Back</Form.Label>
-                    <Form.Group size="lg" controlId="email">
-                        <Form.Control
-                            placeholder= "Email"
-                            type = "email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group size="lg" controlId="password">
-                        <Form.Control
-                            placeholder="Password"
-                            type = "password"
-                            value = {password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Row>
-                        <Col md = "auto">
-                            <Button type="submit">
-                                Login
-                            </Button>
-                        </Col>
-                        <Col>
-                            <StyledLink to = './signup'> Don't have an account yet? </StyledLink>
-                        </Col>
-                    </Row>
-                </Form>
+               <Logins>
+                   
+               </Logins>
             </div>
 
         </div>

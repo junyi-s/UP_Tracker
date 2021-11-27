@@ -12,37 +12,12 @@ const Home = () => {
 
   let apiURL = "http://localhost:5000/api";
 
-  useEffect(() => {}, []);
-
-  // console.log(trackingData);
-
   function handleChange(event) {
     changevalue(event.target.value);
-    axios.post(`${apiURL}/tracking/` + event.target.value).then(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
   }
-
-  // const createTracking = async () => {
-  //   await axios.post(`${apiURL}/tracking/` + value).then(
-  //     (response) => {
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-function change() {
+  async function change() {
     changename(value);
     setShow(true);
-    // createTracking();
 
     axios.get(`${apiURL}/tracking/` + value).then(
       (response) => {
@@ -53,14 +28,10 @@ function change() {
         console.log(error);
       }
     );
-
-    console.log(trackingData);
-    
-
-    if (trackingData === []) {
-      
-    }
   }
+
+  console.log(trackingData);
+
   return (
     <div className="App">
       <header className="App-header">
