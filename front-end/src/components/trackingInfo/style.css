@@ -36,6 +36,11 @@
   font-weight: 600;
 }
 
+.greenColorBold {
+  color: #18923A;
+  font-weight: 600;
+}
+
 .left {
   text-align: left;
   width: 49%;
@@ -288,6 +293,10 @@
     background-color: #2b2c34;
   }
 
+  .progressStep.delivered:after {
+    background-color: #18923A;
+  }
+
   .progressStep:not(:last-child):after {
     content: "";
     display: block;
@@ -320,6 +329,10 @@
     z-index: 100;
   }
 
+  .progressStep.delivered .circle {
+    background-color: #18923A;
+  }
+
   .progressStep.completed .label {
     margin-top: 0;
     width: 130px;
@@ -327,7 +340,18 @@
     text-align: center;
   }
 
+  .progressStep.delivered .label p{
+    color: #18923A;
+  }
+
   .progressStep.active .label {
+    margin-top: 0;
+    width: 130px;
+    margin-left: -50px;
+    text-align: center;
+  }
+
+  .progressStep.delivered .label {
     margin-top: 0;
     width: 130px;
     margin-left: -50px;

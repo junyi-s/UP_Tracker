@@ -12,6 +12,7 @@ import { format, set } from 'date-fns';
 
 const TrackingInfo = (props) => {
   const [openDetail, setOpenDetail] = useState(false);
+  const [status, setStatus] = useState(null);
 
   let trackingHistory = props.details.checkpoints;
 
@@ -24,6 +25,10 @@ const TrackingInfo = (props) => {
     info.checkpoint_time = forDate.split(",");
     // console.log(info.checkpoint_time)
   })
+
+  // if (trackingHistory.at(-1).tag === "Delivered") {
+  //   setStatus("Delivered")
+  // }
 
   const changeArrow = () => {
     if (openDetail) {
@@ -103,7 +108,7 @@ const TrackingInfo = (props) => {
 
             <p>
               Expected Delivery Date:{" "}
-              <span className="redColorBold">{props.details.expected_delivery ? format(new Date(props.details.expected_delivery + "EST"), 'MMM d'): 'N/A'}</span>
+              <span className={(props.details.tag === "Delivered") ? "greenColorBold": "redColorBold"}>{(props.details.tag === "Delivered") ? "Delivered" : (props.details.expected_delivery ? format(new Date(props.details.expected_delivery + "EST"), 'MMM d') : 'N/A')}</span>
             </p>
           </div>
 
@@ -122,22 +127,22 @@ const TrackingInfo = (props) => {
           {/* desktop view */}
           <div className="desktop shipmentHistory">
             <ul className="progressTracker">
-              <li className="progressStep completed">
+              <li className={"progressStep completed " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{`Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
+                  <p>{(props.details.tag === "Pending") ? "": `Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
                 </div>
               </li>
-              <li className="progressStep active">
+              <li className={"progressStep active " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{`In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}`}</p>
+                  <p>{(props.details.tag === "Pending") ? "" : ((props.details.tag === "Delivered") ? "" : (trackingHistory.at(-1).state ? `In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}` : `In Transit - ${trackingHistory.at(-1).city}`))}</p>
                 </div>
               </li>
-              <li className="progressStep">
+              <li className={"progressStep " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
                 <span className="circle"></span>
                 <div className="label">
-                  <p></p>
+                  <p>{(props.details.tag === "Delivered") ? `Delivered - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}` : ""}</p>
                 </div>
               </li>
             </ul>
