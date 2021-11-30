@@ -26,3 +26,17 @@
     left: 0;
     width: 100%;
   }
+
+.col{
+    text-align: center;
+}
+
+a.footer-link {
+    color: white !important;
+    text-decoration: none;
+}
+
+a.footer-link:hover {
+    text-decoration: underline;
+}
+
