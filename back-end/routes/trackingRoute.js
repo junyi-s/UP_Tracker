@@ -9,14 +9,18 @@ router.get("/:trackingNum", async (req, res) => {
 
   const payload = {
     tracking: {
-      slug: "usps",
       tracking_number: req.params.trackingNum,
     },
   };
 
+  var tempSlug;
+  await aftership.courier.detectCouriers(payload)
+  .then(result => {tempSlug = result.couriers[0].slug})
+  .catch(e => console.log(e));
+
   await aftership.tracking
     .getTracking({
-      slug: "usps",
+      slug: tempSlug,
       tracking_number: req.params.trackingNum,
     })
     .then((result) => {
@@ -36,7 +40,7 @@ router.get("/:trackingNum", async (req, res) => {
 
           aftership.tracking
             .getTracking({
-              slug: "usps",
+              slug: tempSlug,
               tracking_number: req.params.trackingNum,
             })
             .then((result) => {
