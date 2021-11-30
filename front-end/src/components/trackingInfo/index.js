@@ -7,8 +7,7 @@ import {
   FaChevronUp,
   FaPen,
 } from "react-icons/fa";
-import { format, set } from 'date-fns';
-
+import { format, set } from "date-fns";
 
 const TrackingInfo = (props) => {
   const [openDetail, setOpenDetail] = useState(false);
@@ -21,10 +20,10 @@ const TrackingInfo = (props) => {
   };
 
   trackingHistory.map((info) => {
-    let forDate = format(new Date(info.checkpoint_time), 'MMM dd,h:mm aaa');
+    let forDate = format(new Date(info.checkpoint_time), "MMM dd,h:mm aaa");
     info.checkpoint_time = forDate.split(",");
     // console.log(info.checkpoint_time)
-  })
+  });
 
   // if (trackingHistory.at(-1).tag === "Delivered") {
   //   setStatus("Delivered")
@@ -104,11 +103,28 @@ const TrackingInfo = (props) => {
             </p>
 
             {/* Mobile view */}
-            <p className="mobile">{`${props.details.slug.toUpperCase()}: ${props.details.tracking_number}`}</p>
+            <p className="mobile">{`${props.details.slug.toUpperCase()}: ${
+              props.details.tracking_number
+            }`}</p>
 
             <p>
               Expected Delivery Date:{" "}
-              <span className={(props.details.tag === "Delivered") ? "greenColorBold": "redColorBold"}>{(props.details.tag === "Delivered") ? "Delivered" : (props.details.expected_delivery ? format(new Date(props.details.expected_delivery + "EST"), 'MMM d') : 'N/A')}</span>
+              <span
+                className={
+                  props.details.tag === "Delivered"
+                    ? "greenColorBold"
+                    : "redColorBold"
+                }
+              >
+                {props.details.tag === "Delivered"
+                  ? "Delivered"
+                  : props.details.expected_delivery
+                  ? format(
+                      new Date(props.details.expected_delivery + "EST"),
+                      "MMM d"
+                    )
+                  : "N/A"}
+              </span>
             </p>
           </div>
 
@@ -123,59 +139,100 @@ const TrackingInfo = (props) => {
             <p>In Transit - DALLAS, TX</p>
             <p>Arrived at USPS Regional Facility</p>
           </div>
-          
+
           {/* desktop view */}
           <div className="desktop shipmentHistory">
             <ul className="progressTracker">
-              <li className={"progressStep completed " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
+              <li
+                className={
+                  "progressStep completed " +
+                  (props.details.tag === "Delivered" ? "delivered" : "")
+                }
+              >
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{(props.details.tag === "Pending") ? "": `Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
+                  <p>
+                    {props.details.tag === "Pending"
+                      ? ""
+                      : `Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}
+                  </p>
                 </div>
               </li>
-              <li className={"progressStep active " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
+              <li
+                className={
+                  "progressStep active " +
+                  (props.details.tag === "Delivered" ? "delivered" : "")
+                }
+              >
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{(props.details.tag === "Pending") ? "" : ((props.details.tag === "Delivered") ? "" : (trackingHistory.at(-1).state ? `In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}` : `In Transit - ${trackingHistory.at(-1).city}`))}</p>
+                  <p>
+                    {props.details.tag === "Pending"
+                      ? ""
+                      : props.details.tag === "Delivered"
+                      ? ""
+                      : trackingHistory.at(-1).state
+                      ? `In Transit - ${trackingHistory.at(-1).city}, ${
+                          trackingHistory.at(-1).state
+                        }`
+                      : `In Transit - ${trackingHistory.at(-1).city}`}
+                  </p>
                 </div>
               </li>
-              <li className={"progressStep " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
+              <li
+                className={
+                  "progressStep " +
+                  (props.details.tag === "Delivered" ? "delivered" : "")
+                }
+              >
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{(props.details.tag === "Delivered") ? `Delivered - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state}` : ""}</p>
+                  <p>
+                    {props.details.tag === "Delivered"
+                      ? `Delivered - ${trackingHistory.at(-1).city}, ${
+                          trackingHistory.at(-1).state
+                        }`
+                      : ""}
+                  </p>
                 </div>
               </li>
             </ul>
           </div>
 
           <div className="expandDetails">
-            <img src="/desktop_map.png" className="mapImg" />
+            {/* <img src="/desktop_map.png" className="mapImg" /> */}
+            <img
+              src="https://maps.googleapis.com/maps/api/staticmap?markers=label:A|40.6401410,-73.9925860
+              &markers=label:B|37.3393400,-77.3537400
+              &path=color:0x44A72AFF|weight:4|40.6401410,-73.9925860|37.3393400,-77.3537400
+              &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
+              &size=640x300"
+              className="mapImg"
+            />
             <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
+              {[...trackingHistory].reverse().map((info) => (
+                <li className="progressStepVert">
+                  <div className="labelLeftVert">
+                    <p>
+                      <span className="darkBlue semiBold">
+                        {info.checkpoint_time[0]}
+                      </span>
+                      <br />
+                      {info.checkpoint_time[1]}
+                    </p>
+                  </div>
+                  <span className="circleVert"></span>
 
-              {
-                [...trackingHistory].reverse().map((info) => (
-                  <li className="progressStepVert">
-                    <div className="labelLeftVert">
-                      <p>
-                        <span className="darkBlue semiBold">{info.checkpoint_time[0]}</span><br />{info.checkpoint_time[1]}
-                      </p>
-                    </div>
-                    <span className="circleVert"></span>
-
-                    <div className="labelVert">
-                      <p>
-                        <span className="semiBold">
-                          {info.message}
-                        </span>
-                        <br />
-                        {info.location}{" "}
-                      </p>
-                    </div>
-                  </li>
-                ))
-              }
-
+                  <div className="labelVert">
+                    <p>
+                      <span className="semiBold">{info.message}</span>
+                      <br />
+                      {info.location}{" "}
+                    </p>
+                  </div>
+                </li>
+              ))}
 
               {/* <li className="progressStepVert">
                 <div className="labelLeftVert">
