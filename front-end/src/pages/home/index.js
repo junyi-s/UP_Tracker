@@ -53,9 +53,9 @@ const Home = () => {
               </header>
             </div>
           </div>
-          <div class="row r2">
+          {/* <div class="row r2">
             <p>Your tracking number is: {name}</p>
-          </div>
+          </div> */}
           <div class="row r3">
             {trackingData.map((tracking) => (
               <TrackingInfo details={tracking} />
