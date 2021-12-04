@@ -14,6 +14,7 @@ const TrackingInfo = (props) => {
   const [status, setStatus] = useState(null);
 
   let trackingHistory = props.details.checkpoints;
+  let lastCityIndex = 0;
 
   const toggleDetails = () => {
     setOpenDetail(!openDetail);
@@ -22,7 +23,12 @@ const TrackingInfo = (props) => {
   trackingHistory.map((info) => {
     let forDate = format(new Date(info.checkpoint_time), "MMM dd,h:mm aaa");
     info.checkpoint_time = forDate.split(",");
-    // console.log(info.checkpoint_time)
+  });
+
+  trackingHistory.map((info, i) => {
+    if (info.state !== null) {
+      lastCityIndex = i;
+    }
   });
 
   // if (trackingHistory.at(-1).tag === "Delivered") {
@@ -201,14 +207,34 @@ const TrackingInfo = (props) => {
 
           <div className="expandDetails">
             {/* <img src="/desktop_map.png" className="mapImg" /> */}
-            <img
-              src="https://maps.googleapis.com/maps/api/staticmap?markers=label:A|40.6401410,-73.9925860
-              &markers=label:B|37.3393400,-77.3537400
-              &path=color:0x44A72AFF|weight:4|40.6401410,-73.9925860|37.3393400,-77.3537400
+            {/* <img
+              src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|New+York,NY
+              &markers=color:0xE45858FF|label:B|WESTLAND, MI
+              &path=color:0x18923AFF|weight:4|New+York,NY|WESTLAND, MI
               &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
               &size=640x300"
               className="mapImg"
+            /> */}
+
+            <img
+              src={
+                props.details.tag === "Delivered"
+                  ? `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}
+              &markers=color:0xE45858FF|label:B|${trackingHistory.at(-1).city.replace(/ /g,"+")},${trackingHistory.at(-1).state}
+              &path=color:0x18923AFF|weight:4|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}|${trackingHistory.at(-1).city.replace(/ /g,"+")},${trackingHistory.at(-1).state}
+              &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
+              &size=640x300`
+                  : `"https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}
+              &markers=color:0x0e67b5FF|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}
+              &markers=color:0xE45858FF|label:B|WESTLAND,MI
+              &path=color:0x18923AFF|weight:4|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}
+              &path=color:0x00000050|weight:4|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}|WESTLAND,MI
+              &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
+              &size=640x300"`
+              }
+              className="mapImg"
             />
+
             <p className="trackingTitle">Tracking History</p>
             <ul className="progressTrackerVert">
               {[...trackingHistory].reverse().map((info) => (
