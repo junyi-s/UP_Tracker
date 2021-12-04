@@ -15,6 +15,8 @@ const TrackingInfo = (props) => {
 
   let trackingHistory = props.details.checkpoints;
   let lastCityIndex = 0;
+  let lastCityInfo = "";
+  let firstCityIndex = 0;
 
   const toggleDetails = () => {
     setOpenDetail(!openDetail);
@@ -26,10 +28,21 @@ const TrackingInfo = (props) => {
   });
 
   trackingHistory.map((info, i) => {
-    if (info.state !== null) {
+    if (info.location !== null) {
       lastCityIndex = i;
+      if (info.location.includes(" DISTRIBUTION CENTER")) {
+        lastCityInfo = info.location.replace(" DISTRIBUTION CENTER", '');
+        lastCityInfo = lastCityInfo.replace("/ /g", ',');
+      }
     }
   });
+
+  for (let i = 0; i < trackingHistory.length; i++) {
+    if (trackingHistory[i].location !== null) {
+      firstCityIndex = i;
+      break;
+    }
+  }
 
   // if (trackingHistory.at(-1).tag === "Delivered") {
   //   setStatus("Delivered")
@@ -177,11 +190,11 @@ const TrackingInfo = (props) => {
                       ? ""
                       : props.details.tag === "Delivered"
                       ? ""
-                      : trackingHistory.at(-1).state
+                      : trackingHistory.at(-1).state && trackingHistory.at(-1).city
                       ? `In Transit - ${trackingHistory.at(-1).city}, ${
                           trackingHistory.at(-1).state
                         }`
-                      : `In Transit - ${trackingHistory.at(-1).city}`}
+                      : `In Transit`}
                   </p>
                 </div>
               </li>
@@ -206,31 +219,19 @@ const TrackingInfo = (props) => {
           </div>
 
           <div className="expandDetails">
-            {/* <img src="/desktop_map.png" className="mapImg" /> */}
-            {/* <img
-              src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|New+York,NY
-              &markers=color:0xE45858FF|label:B|WESTLAND, MI
-              &path=color:0x18923AFF|weight:4|New+York,NY|WESTLAND, MI
-              &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
-              &size=640x300"
-              className="mapImg"
-            /> */}
-
             <img
               src={
                 props.details.tag === "Delivered"
-                  ? `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}
-              &markers=color:0xE45858FF|label:B|${trackingHistory.at(-1).city.replace(/ /g,"+")},${trackingHistory.at(-1).state}
-              &path=color:0x18923AFF|weight:4|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}|${trackingHistory.at(-1).city.replace(/ /g,"+")},${trackingHistory.at(-1).state}
+                  ? `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(firstCityIndex).location.replace(/ /g, "+")}
+              &markers=color:0xE45858FF|label:B|${trackingHistory.at(-1).location.replace(/ /g, "+")}
+              &path=color:0x18923AFF|weight:4|${trackingHistory.at(firstCityIndex).location.replace(/ /g, "+")}|${trackingHistory.at(-1).location.replace(/ /g, "+")}
               &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
               &size=640x300`
-                  : `"https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}
-              &markers=color:0x0e67b5FF|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}
-              &markers=color:0xE45858FF|label:B|WESTLAND,MI
-              &path=color:0x18923AFF|weight:4|${trackingHistory.at(0).city.replace(/ /g,"+")},${trackingHistory.at(0).state}|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}
-              &path=color:0x00000050|weight:4|${trackingHistory.at(lastCityIndex).city.replace(/ /g,"+")},${trackingHistory.at(lastCityIndex).state}|WESTLAND,MI
-              &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
-              &size=640x300"`
+                  : `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory.at(firstCityIndex).location.replace(/ /g, "+")}
+                  &markers=color:0x0e67b5FF|${lastCityInfo.replace(/ /g, "+")}
+                  &path=color:0x0e67b5FF|weight:4|${trackingHistory.at(firstCityIndex).location.replace(/ /g, "+")}|${lastCityInfo.replace(/ /g, "+")}
+                  &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
+                  &size=640x300`
               }
               className="mapImg"
             />
