@@ -37,7 +37,7 @@
 }
 
 .greenColorBold {
-  color: #18923A;
+  color: #18923a;
   font-weight: 600;
 }
 
@@ -223,6 +223,10 @@
   padding-top:70px;
 } */
 
+.hide {
+  display: none !important;
+}
+
 @media (min-width: 768px) {
   .trackingInfo .buttons {
     width: 950px;
@@ -286,7 +290,7 @@
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
-    padding: 40px 80px;
+    padding: 40px 90px;
   }
 
   .progressStep {
@@ -302,7 +306,7 @@
   }
 
   .progressStep.delivered:after {
-    background-color: #18923A;
+    background-color: #18923a;
   }
 
   .progressStep:not(:last-child):after {
@@ -338,7 +342,7 @@
   }
 
   .progressStep.delivered .circle {
-    background-color: #18923A;
+    background-color: #18923a;
   }
 
   .progressStep.completed .label {
@@ -348,8 +352,8 @@
     text-align: center;
   }
 
-  .progressStep.delivered .label p{
-    color: #18923A;
+  .progressStep.delivered .label p {
+    color: #18923a;
   }
 
   .progressStep.active .label {
@@ -409,5 +413,12 @@
     line-height: 30px;
     margin-left: 60px;
     margin-bottom: 36px;
+  }
+
+  .pendingInfo {
+    padding-top: 90px;
+    padding-bottom: 4px;
+    color: #0e67b5 !important;
+    font-weight: 600;
   }
 }
