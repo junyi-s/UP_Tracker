@@ -31,6 +31,7 @@
   .card {
     box-shadow: 0 4px 8px 0 #00000033;
     margin: 8px;
+    text-align: center;
   }
   
   .about-section {
