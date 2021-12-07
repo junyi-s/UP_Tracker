@@ -71,36 +71,40 @@ const TrackingInfo = (props) => {
       ];
     }
   };
+  function savedPackage() {
+    alert('Package saved!');
+  }
+  
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <div className="trackingInfo">
       {/* Buttons on top of the tracking info */}
       <div className="buttons">
         <div className="left">
-          <p>
-            Save Package
-            <FaRegBookmark
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#0E67B5",
-              }}
-            />
-          </p>
+        <button
+            style={{
+              position: "relative",
+              top: "2px",
+              left: "3px",
+              backgroundColor:"green",
+              borderRadius: "12px"
+            }}
+            onClick={savedPackage} >Save
+          </button>
         </div>
         <div className="right">
-          <p>
-            Remove
-            <FaTimes
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#E45858",
-              }}
-            />
-          </p>
+        <button
+        style={{
+          position: "relative",
+          top: "2px",
+          left: "3px",
+          backgroundColor:"red",
+          borderRadius: "12px"
+        }}
+         onClick={refreshPage}>Remove</button>
         </div>
       </div>
 
@@ -117,6 +121,7 @@ const TrackingInfo = (props) => {
                   top: "2px",
                   left: "8px",
                   color: "#2B2C34",
+                  // padding: "20px",
                 }}
               />
             </p>
