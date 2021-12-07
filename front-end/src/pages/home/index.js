@@ -51,7 +51,9 @@ const Home = () => {
               </header>
             </Col>
             <Col>
-              <header classname= "button">
+              <header classname= "button" style={{
+              paddingTop:"70px"
+            }}>
                 <button 
                 onClick={change}>Submit</button>
               </header>

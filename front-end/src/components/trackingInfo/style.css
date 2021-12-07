@@ -216,11 +216,19 @@
 .darkBlue {
   color: #0e67b5;
 }
+.form{
+  padding-top: 70px;
+}
+/* .button{
+  padding-top:70px;
+} */
 
 @media (min-width: 768px) {
   .trackingInfo .buttons {
     width: 950px;
     margin: auto;
+    padding-bottom: 10px;
+    padding-top: 40px;
   }
 
   .rect {
