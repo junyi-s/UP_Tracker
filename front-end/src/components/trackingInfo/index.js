@@ -80,9 +80,9 @@ const TrackingInfo = (props) => {
     }
   };
   function savedPackage() {
-    alert('Package saved!');
+    alert("Package saved!");
   }
-  
+
   function refreshPage() {
     window.location.reload(false);
   }
@@ -92,27 +92,32 @@ const TrackingInfo = (props) => {
       {/* Buttons on top of the tracking info */}
       <div className="buttons">
         <div className="left">
-        <button
+          <button
             style={{
               position: "relative",
               top: "2px",
               left: "3px",
-              backgroundColor:"green",
-              borderRadius: "12px"
+              backgroundColor: "green",
+              borderRadius: "12px",
             }}
-            onClick={savedPackage} >Save
+            onClick={savedPackage}
+          >
+            Save
           </button>
         </div>
         <div className="right">
-        <button
-        style={{
-          position: "relative",
-          top: "2px",
-          left: "3px",
-          backgroundColor:"red",
-          borderRadius: "12px"
-        }}
-         onClick={refreshPage}>Remove</button>
+          <button
+            style={{
+              position: "relative",
+              top: "2px",
+              left: "3px",
+              backgroundColor: "red",
+              borderRadius: "12px",
+            }}
+            onClick={refreshPage}
+          >
+            Remove
+          </button>
         </div>
       </div>
 
@@ -164,15 +169,25 @@ const TrackingInfo = (props) => {
             <p className="desktop">{`Tracking Number: ${props.details.tracking_number}`}</p>
             <p className="desktop">{`Carrier: ${props.details.slug.toUpperCase()}`}</p>
           </div>
-          
 
           {/* Mobile view */}
-          <span className={"circle mobile " + (props.details.tag === "Pending" ? "hide" : "")}></span>
-          <div className={"trackingHistoryPreview mobile " + (props.details.tag === "Pending" ? "hide" : "")}>
+          <span
+            className={
+              "circle mobile " + (props.details.tag === "Pending" ? "hide" : "")
+            }
+          ></span>
+          <div
+            className={
+              "trackingHistoryPreview mobile " +
+              (props.details.tag === "Pending" ? "hide" : "")
+            }
+          >
             {props.details.tag === "Pending"
               ? ""
               : props.details.tag === "Delivered"
-              ? ""
+              ? `Delivered - ${trackingHistory.at(-1).city}, ${
+                  trackingHistory.at(-1).state
+                }`
               : trackingHistory.at(-1).state && trackingHistory.at(-1).city
               ? `In Transit - ${trackingHistory.at(-1).city}, ${
                   trackingHistory.at(-1).state
@@ -181,7 +196,12 @@ const TrackingInfo = (props) => {
           </div>
 
           {/* desktop view */}
-          <div className={"desktop shipmentHistory " + (props.details.tag === "Pending" ? "hide" : "")}>
+          <div
+            className={
+              "desktop shipmentHistory " +
+              (props.details.tag === "Pending" ? "hide" : "")
+            }
+          >
             <ul className="progressTracker">
               <li
                 className={
@@ -243,9 +263,10 @@ const TrackingInfo = (props) => {
             </ul>
           </div>
 
-
           {props.details.tag === "Pending" ? (
-            <p className="pendingInfo">Tracking Information is pending, check back later...</p>
+            <p className="pendingInfo">
+              Tracking Information is pending, check back later...
+            </p>
           ) : (
             <div className="expandDetails">
               <img
@@ -394,7 +415,12 @@ const TrackingInfo = (props) => {
               </ul>
             </div>
           )}
-          <p className={"detailsBtn " + (props.details.tag === "Pending" ? "hide" : "")} onClick={() => toggleDetails()}>
+          <p
+            className={
+              "detailsBtn " + (props.details.tag === "Pending" ? "hide" : "")
+            }
+            onClick={() => toggleDetails()}
+          >
             {openDetail ? "Hide Details" : "View Details"}
             {changeArrow()}
           </p>
