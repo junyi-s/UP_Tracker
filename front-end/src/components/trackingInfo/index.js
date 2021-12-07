@@ -25,7 +25,7 @@ const TrackingInfo = (props) => {
     info.checkpoint_time = forDate.split(",");
     // console.log(info.checkpoint_time)
   })
-
+  
   // if (trackingHistory.at(-1).tag === "Delivered") {
   //   setStatus("Delivered")
   // }
@@ -54,35 +54,42 @@ const TrackingInfo = (props) => {
     }
   };
 
+  function sayHello() {
+    alert('Package saved!');
+  }
+  
+  function refreshPage() {
+    window.location.reload(false);
+  }
+  
+
   return (
     <div className="trackingInfo">
       {/* Buttons on top of the tracking info */}
       <div className="buttons">
         <div className="left">
-          <p>
-            Save Package
-            <FaRegBookmark
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#0E67B5",
-              }}
-            />
-          </p>
+          <button
+            style={{
+              position: "relative",
+              top: "2px",
+              left: "3px",
+              backgroundColor:"green",
+              borderRadius: "12px"
+            }}
+            onClick={sayHello} >Save
+          </button>
+
         </div>
         <div className="right">
-          <p>
-            Remove
-            <FaTimes
-              style={{
-                position: "relative",
-                top: "2px",
-                left: "3px",
-                color: "#E45858",
-              }}
-            />
-          </p>
+        <button
+        style={{
+          position: "relative",
+          top: "2px",
+          left: "3px",
+          backgroundColor:"red",
+          borderRadius: "12px"
+        }}
+         onClick={refreshPage}>Remove</button>
         </div>
       </div>
 
@@ -96,6 +103,7 @@ const TrackingInfo = (props) => {
                 className="penIcon"
                 style={{
                   position: "relative",
+                  padding:"20px",
                   top: "2px",
                   left: "8px",
                   color: "#2B2C34",
@@ -108,7 +116,7 @@ const TrackingInfo = (props) => {
 
             <p>
               Expected Delivery Date:{" "}
-              <span className={(props.details.tag === "Delivered") ? "greenColorBold": "redColorBold"}>{(props.details.tag === "Delivered") ? "Delivered" : (props.details.expected_delivery ? format(new Date(props.details.expected_delivery + "EST"), 'MMM d') : 'N/A')}</span>
+              <span className={(props.details.tag === "Delivered") ? "greenColorBold" : "redColorBold"}>{(props.details.tag === "Delivered") ? "Delivered" : (props.details.expected_delivery ? format(new Date(props.details.expected_delivery + "EST"), 'MMM d') : 'N/A')}</span>
             </p>
           </div>
 
@@ -123,14 +131,14 @@ const TrackingInfo = (props) => {
             <p>In Transit - DALLAS, TX</p>
             <p>Arrived at USPS Regional Facility</p>
           </div>
-          
+
           {/* desktop view */}
           <div className="desktop shipmentHistory">
             <ul className="progressTracker">
               <li className={"progressStep completed " + ((props.details.tag === "Delivered") ? "delivered" : "")}>
                 <span className="circle"></span>
                 <div className="label">
-                  <p>{(props.details.tag === "Pending") ? "": `Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
+                  <p>{(props.details.tag === "Pending") ? "" : `Origin - ${trackingHistory[0].city}, ${trackingHistory[0].state}`}</p>
                 </div>
               </li>
               <li className={"progressStep active " + ((props.details.tag === "Delivered") ? "delivered" : "")}>

@@ -1,6 +1,7 @@
 .trackingInfo .buttons {
   width: 325px;
   margin: auto;
+  padding-bottom: 20px;
 }
 
 .buttons .left p {
