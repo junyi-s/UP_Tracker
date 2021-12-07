@@ -36,7 +36,13 @@ router.get("/:trackingNum", async (req, res) => {
           console.log(result);
 
           // wait a bit before calling another get
-          await new Promise((resolve) => setTimeout(resolve, 2000));
+          console.log("SLUG " + tempSlug)
+          if (tempSlug === "ups") {
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+          } else {
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+          }
+          
 
           aftership.tracking
             .getTracking({
