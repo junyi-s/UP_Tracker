@@ -24,12 +24,6 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-                {/* <ul class="nav  navbar-right">
-                    <li>
-                        <div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" href="/login">Login</a>
-                        </div>
-                    </li>
-                </ul> */}
             </nav>
         </div>
     );

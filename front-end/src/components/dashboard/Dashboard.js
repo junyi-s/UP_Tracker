@@ -10,6 +10,8 @@ class Dashboard extends Component {
   }
   //attempt to make function to display array from local storage
   displayPackages() {
+    let packages = localStorage.getItem('packages');
+    if(packages){
     let items = this.state.converted;
     return(
       <ul>
@@ -24,6 +26,14 @@ class Dashboard extends Component {
         }
       </ul>
     );
+      }
+      else{
+        return(
+          <p>
+            No packages saved yet.
+          </p>
+        )
+      }
     
    
   }
