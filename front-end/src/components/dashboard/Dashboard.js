@@ -4,23 +4,28 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 class Dashboard extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = { converted: JSON.parse(localStorage.getItem('packages')) };
+  }
   //attempt to make function to display array from local storage
   displayPackages() {
-    var full = localStorage.getItem('packages');
-    var converted = JSON.parse(full)
-    if(converted.length > 0){
-      for(const i = 0; i < converted.length;i++){
-        <li>
-          {converted[i]}
-        </li>
-      }
-    }
-    else{
-      <p>
-        No packages saved at the moment!
-      </p>
-    }
+    let items = this.state.converted;
+    return(
+      <ul>
+        {
+          items.map((val, index) => {
+            return (
+              <li key={index}>
+                { val }
+              </li>
+            );
+          })
+        }
+      </ul>
+    );
+    
+   
   }
 
   onLogoutClick = e => {
@@ -39,14 +44,11 @@ class Dashboard extends Component {
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
                 Your packages will be listed below{" "}
-                <span style={{ fontFamily: "monospace" }}></span> 
-              </p>  
-              <p>
-                {/* {displayPackages} */}
-                {localStorage.getItem('packages')}
-                {/* {JSON.parse(localStorage.getItem('packages'))[0]} */}
-                {/* {this.displayPackages} */}
-                </p>          
+                <span style={{ fontFamily: "monospace" }}></span>
+              </p>
+              <div>
+                {this.displayPackages()}
+              </div>
             </h4>
             <button
               style={{
@@ -54,8 +56,8 @@ class Dashboard extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "200px",
-                color:"white",
-                background:"blue"
+                color: "white",
+                background: "blue"
               }}
               onClick={this.onLogoutClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
