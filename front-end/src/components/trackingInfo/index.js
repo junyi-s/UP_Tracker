@@ -79,8 +79,39 @@ const TrackingInfo = (props) => {
       ];
     }
   };
-  function savedPackage() {
-    alert("Package saved!");
+  function save() {
+    var exists = false
+    //get tracking number from input
+    var new_tracking = props.details.tracking_number;
+    //check if there is nothing saved at the start and if so make a new empty array and add to it
+    if (localStorage.getItem('packages') == null) {
+      localStorage.setItem('packages', '[]');
+      // get old data and push it to new data
+      var old_data = JSON.parse(localStorage.getItem('packages'));
+      old_data.push(new_tracking);
+
+      //save the old and new data to local storage
+      localStorage.setItem('packages', JSON.stringify(old_data));
+      alert('Package was saved!')
+    }
+    else {
+      for (var i = 0; i < JSON.parse(localStorage.getItem('packages')).length; i++) {
+        if (JSON.parse(localStorage.getItem('packages'))[i] == new_tracking) {
+          // alert('Error. Package has already been saved!');
+          exists = true;
+        }
+      }
+      if (exists == false) {
+        var old_data = JSON.parse(localStorage.getItem('packages'));
+        old_data.push(new_tracking);
+
+        //save the old and new data to local storage
+        localStorage.setItem('packages', JSON.stringify(old_data));
+        alert('Package was saved!')      }
+      else {
+        alert('Error! Package has been saved already.')
+      }
+    }
   }
 
   function refreshPage() {
@@ -100,7 +131,7 @@ const TrackingInfo = (props) => {
               backgroundColor: "green",
               borderRadius: "12px",
             }}
-            onClick={savedPackage}
+            onClick={save}
           >
             Save
           </button>
@@ -140,9 +171,8 @@ const TrackingInfo = (props) => {
             </p>
 
             {/* Mobile view */}
-            <p className="mobile">{`${props.details.slug.toUpperCase()}: ${
-              props.details.tracking_number
-            }`}</p>
+            <p className="mobile">{`${props.details.slug.toUpperCase()}: ${props.details.tracking_number
+              }`}</p>
 
             <p>
               Expected Delivery Date:{" "}
@@ -156,11 +186,11 @@ const TrackingInfo = (props) => {
                 {props.details.tag === "Delivered"
                   ? "Delivered"
                   : props.details.expected_delivery
-                  ? format(
+                    ? format(
                       new Date(props.details.expected_delivery + "EST"),
                       "MMM d"
                     )
-                  : "N/A"}
+                    : "N/A"}
               </span>
             </p>
           </div>
@@ -185,14 +215,12 @@ const TrackingInfo = (props) => {
             {props.details.tag === "Pending"
               ? ""
               : props.details.tag === "Delivered"
-              ? `Delivered - ${trackingHistory.at(-1).city}, ${
-                  trackingHistory.at(-1).state
+                ? `Delivered - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state
                 }`
-              : trackingHistory.at(-1).state && trackingHistory.at(-1).city
-              ? `In Transit - ${trackingHistory.at(-1).city}, ${
-                  trackingHistory.at(-1).state
-                }`
-              : `In Transit`}
+                : trackingHistory.at(-1).state && trackingHistory.at(-1).city
+                  ? `In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state
+                  }`
+                  : `In Transit`}
           </div>
 
           {/* desktop view */}
@@ -216,8 +244,8 @@ const TrackingInfo = (props) => {
                       ? ""
                       : trackingHistory[firstCityNum].city &&
                         trackingHistory[firstCityNum].state
-                      ? `Origin - ${trackingHistory[firstCityNum].city}, ${trackingHistory[firstCityNum].state}`
-                      : `Origin - ${trackingHistory[firstCityNum].city}, ${trackingHistory[firstCityNum].country_name}`}
+                        ? `Origin - ${trackingHistory[firstCityNum].city}, ${trackingHistory[firstCityNum].state}`
+                        : `Origin - ${trackingHistory[firstCityNum].city}, ${trackingHistory[firstCityNum].country_name}`}
                   </p>
                 </div>
               </li>
@@ -233,13 +261,12 @@ const TrackingInfo = (props) => {
                     {props.details.tag === "Pending"
                       ? ""
                       : props.details.tag === "Delivered"
-                      ? ""
-                      : trackingHistory.at(-1).state &&
-                        trackingHistory.at(-1).city
-                      ? `In Transit - ${trackingHistory.at(-1).city}, ${
-                          trackingHistory.at(-1).state
-                        }`
-                      : `In Transit`}
+                        ? ""
+                        : trackingHistory.at(-1).state &&
+                          trackingHistory.at(-1).city
+                          ? `In Transit - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state
+                          }`
+                          : `In Transit`}
                   </p>
                 </div>
               </li>
@@ -253,9 +280,8 @@ const TrackingInfo = (props) => {
                 <div className="label">
                   <p>
                     {props.details.tag === "Delivered"
-                      ? `Delivered - ${trackingHistory.at(-1).city}, ${
-                          trackingHistory.at(-1).state
-                        }`
+                      ? `Delivered - ${trackingHistory.at(-1).city}, ${trackingHistory.at(-1).state
+                      }`
                       : ""}
                   </p>
                 </div>
@@ -274,29 +300,29 @@ const TrackingInfo = (props) => {
                   props.details.tag === "Pending"
                     ? ""
                     : props.details.tag === "Delivered"
-                    ? `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory
+                      ? `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory
                         .at(firstCityNum)
                         .location.replace(/ /g, "+")}
               &markers=color:0xE45858FF|label:B|${trackingHistory
-                .at(-1)
-                .location.replace(/ /g, "+")}
-              &path=color:0x18923AFF|weight:4|${trackingHistory
-                .at(firstCityNum)
-                .location.replace(/ /g, "+")}|${trackingHistory
                         .at(-1)
                         .location.replace(/ /g, "+")}
+              &path=color:0x18923AFF|weight:4|${trackingHistory
+                        .at(firstCityNum)
+                        .location.replace(/ /g, "+")}|${trackingHistory
+                          .at(-1)
+                          .location.replace(/ /g, "+")}
               &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
               &size=640x300`
-                    : `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory
+                      : `https://maps.googleapis.com/maps/api/staticmap?markers=color:0xE45858FF|label:A|${trackingHistory
                         .at(firstCityNum)
                         .location.replace(/ /g, "+")}
                   &markers=color:0x0e67b5FF|${lastCityInfo.replace(/ /g, "+")}
                   &path=color:0x0e67b5FF|weight:4|${trackingHistory
-                    .at(firstCityNum)
-                    .location.replace(/ /g, "+")}|${lastCityInfo.replace(
-                        / /g,
-                        "+"
-                      )}
+                        .at(firstCityNum)
+                        .location.replace(/ /g, "+")}|${lastCityInfo.replace(
+                          / /g,
+                          "+"
+                        )}
                   &key=AIzaSyAdrXithU6ObWf1kqhCA1RxJBBnjPgx9o4
                   &size=640x300`
                 }
@@ -327,91 +353,6 @@ const TrackingInfo = (props) => {
                     </div>
                   </li>
                 ))}
-
-                {/* <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>
-                    <span className="darkBlue semiBold">Oct 25</span> 6:56 pm
-                  </p>
-                </div>
-                <span className="circleVert"></span>
-
-                <div className="labelVert">
-                  <p>
-                    <span className="semiBold">
-                      Arrived at USPS Regional Facility
-                    </span>
-                    <br />
-                    DALLAS TX NETWORK DISTRIBUTION CENTER{" "}
-                  </p>
-                </div>
-              </li>
-              <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>
-                    <span className="darkBlue semiBold">Oct 25</span> 6:36 pm
-                  </p>
-                </div>
-                <span className="circleVert"></span>
-                <div className="labelVert">
-                  <p>
-                    <span className="semiBold">
-                      Departed USPS Regional Facility
-                    </span>
-                    <br />
-                    DALLAS TX LOGISTICS CENTER
-                  </p>
-                </div>
-              </li>
-              <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>
-                    <span className="darkBlue semiBold">Oct 25</span>
-                  </p>
-                </div>
-                <span className="circleVert"></span>
-                <div className="labelVert">
-                  <p>
-                    <span className="semiBold">
-                      In Transit to Next Facility
-                    </span>
-                  </p>
-                </div>
-              </li>
-              <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>
-                    <span className="darkBlue semiBold">Oct 25</span> 6:09 pm
-                  </p>
-                </div>
-                <span className="circleVert"></span>
-                <div className="labelVert">
-                  <p>
-                    <span className="semiBold">
-                      Arrived at USPS Regional Facility
-                    </span>
-                    <br />
-                    DALLAS TX LOGISTICS CENTER
-                  </p>
-                </div>
-              </li>
-              <li className="progressStepVert">
-                <div className="labelLeftVert">
-                  <p>
-                    <span className="darkBlue semiBold">Oct 24</span> 7:19 am
-                  </p>
-                </div>
-                <span className="circleVert"></span>
-                <div className="labelVert">
-                  <p>
-                    <span className="semiBold">
-                      Departed USPS Regional Facility
-                    </span>
-                    <br />
-                    QUEENS NY DISTRIBUTION CENTER{" "}
-                  </p>
-                </div>
-              </li> */}
               </ul>
             </div>
           )}

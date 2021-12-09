@@ -32,7 +32,6 @@ const Home = () => {
     );
   }
 
-  //console.log(trackingData);
 
   return (
     <div className="App">

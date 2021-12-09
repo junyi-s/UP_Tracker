@@ -4,6 +4,25 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 class Dashboard extends Component {
+  
+  //attempt to make function to display array from local storage
+  displayPackages() {
+    var full = localStorage.getItem('packages');
+    var converted = JSON.parse(full)
+    if(converted.length > 0){
+      for(const i = 0; i < converted.length;i++){
+        <li>
+          {converted[i]}
+        </li>
+      }
+    }
+    else{
+      <p>
+        No packages saved at the moment!
+      </p>
+    }
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -21,7 +40,13 @@ class Dashboard extends Component {
               <p className="flow-text grey-text text-darken-1">
                 Your packages will be listed below{" "}
                 <span style={{ fontFamily: "monospace" }}></span> 
-              </p>
+              </p>  
+              <p>
+                {/* {displayPackages} */}
+                {localStorage.getItem('packages')}
+                {/* {JSON.parse(localStorage.getItem('packages'))[0]} */}
+                {/* {this.displayPackages} */}
+                </p>          
             </h4>
             <button
               style={{
