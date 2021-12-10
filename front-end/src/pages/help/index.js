@@ -6,7 +6,7 @@ const Help = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <h2>Collapsibles</h2>
+                <h2>Instructions and Developer Notes</h2>
                 <p>A Collapsible:</p>
                 <button type="button" class="collapsible">Open Collapsible</button>
                 <div class="content">
@@ -34,8 +34,8 @@ const Help = () => {
 export default Help;
 
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
 
 // for (i = 0; i < coll.length; i++) {
 //   coll[i].addEventListener("click", function() {
