@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { AfterShip } = require("aftership");
-const aftership = new AfterShip("5c627890-bf2f-477e-8816-f508647d03e1", {
+const aftership = new AfterShip("3e223f39-8c55-4635-a9c9-8ec14c05ff37", {
   endpoint: "https://api.aftership.com/v4",
 });
 

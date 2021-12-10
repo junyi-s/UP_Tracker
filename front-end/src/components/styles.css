@@ -40,3 +40,6 @@ a.footer-link:hover {
     text-decoration: underline;
 }
 
+.displayPackages {
+    text-align: initial !important;
+}
