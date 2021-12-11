@@ -2,46 +2,62 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import TrackingInfo from "../trackingInfo";
+import TrackingInfoDisplay from "../trackingInfoDisplay";
 import axios from "axios";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { converted: JSON.parse(localStorage.getItem("packages")), data: [] };
+    this.state = { converted: [], data: [] };
   }
 
   async componentDidMount() {
-    let packages = localStorage.getItem("packages");
-    if (packages) {
-      let items = this.state.converted;
-      let apiURL = "http://localhost:5000/api";
 
-      items.map(async (val, index) => {
-        await axios.get(`${apiURL}/tracking/` + val).then((response) => {
-          this.setState({data: [...this.state.data, response.data.tracking]});
-          console.log(this.state.data);
+    if (localStorage.getItem("packages") != null) {
+      let packages = localStorage.getItem("packages");
+      if (packages.length != 0){
+        console.log("If")
+        // let items = this.state.converted;
+        let items = JSON.parse(localStorage.getItem("packages"));
+        let apiURL = "http://localhost:5000/api";
+  
+        items.map(async (val, index) => {
+          await axios.get(`${apiURL}/tracking/` + val).then((response) => {
+            this.setState({data: [...this.state.data, response.data.tracking]});
+            console.log(this.state.data);
+          },
+          (error) => {
+            console.log(error);
+          });
         });
-      });
+
+    } 
+    else {
+      console.log("Else")
+      }
+     
     }
   }
 
-  //attempt to make function to display array from local storage
   displayPackages() {
-    let packages = localStorage.getItem("packages");
+    
+    console.log("INside")
+    if (localStorage.getItem("packages") != null && localStorage.getItem("packages").length > 2) {
+      let packages = localStorage.getItem("packages");
+      if (packages.length != 2) {
+        console.log("Display")
+        console.log(this.state.data);
 
-    if (packages) {
-      console.log(this.state.data);
-
-      return (
-        <div>
-          {this.state.data.map((val, index) => {
-            console.log(val)
-            console.log(this.state.data);
-            return <TrackingInfo details={val} />;
-          })}
-        </div>
-      );
+        return (
+          <div>
+            {this.state.data.map((val, index) => {
+              console.log(val)
+              console.log(this.state.data);
+              return <TrackingInfoDisplay details={val} />;
+            })}
+          </div>
+        );
+      }
     }
     // <ul>
     //   {
@@ -65,6 +81,7 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log("Render")
     const { user } = this.props.auth;
 
     return (

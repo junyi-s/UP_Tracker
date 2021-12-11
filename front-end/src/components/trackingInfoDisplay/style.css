@@ -1,0 +1,427 @@
+.trackingInfo .buttons {
+  width: 325px;
+  margin: auto;
+}
+
+.buttons .left p {
+  color: #0e67b5;
+}
+
+.buttons .right p {
+  color: #e45858;
+}
+
+.rect {
+  width: 325px;
+  height: 200px;
+  background: #b7d6f1;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.rectContent {
+  padding: 20px;
+  position: relative;
+}
+
+.trackingInfo p {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  color: #2b2c34;
+}
+
+.redColorBold {
+  color: #e45858;
+  font-weight: 600;
+}
+
+.greenColorBold {
+  color: #18923a;
+  font-weight: 600;
+}
+
+.left {
+  text-align: left;
+  width: 49%;
+  display: inline-block;
+}
+
+.right {
+  text-align: right;
+  width: 50%;
+  display: inline-block;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  background-color: #2b2c34;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  top: 18px;
+}
+
+.trackingHistoryPreview {
+  position: relative;
+  top: 15px;
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 600;
+}
+
+.detailsBtn {
+  position: absolute;
+  top: 155px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 16px !important;
+}
+
+.mobile {
+  display: auto;
+}
+
+.desktop {
+  display: none;
+}
+
+/* .minimizeDetails {
+  transition: all 0.4s ease;
+} */
+
+.mapImg {
+  position: relative;
+  /* width: 254px; */
+  height: 152px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+}
+
+.expandDetails {
+  opacity: 0;
+  max-height: 0;
+  overflow-y: hidden;
+  margin-bottom: 25px;
+  /* transition: all 0.4s ease-out; */
+}
+
+.minimizeDetails.open .expandDetails {
+  opacity: 1;
+  max-height: 3000px;
+}
+
+.minimizeDetails.open {
+  height: auto;
+}
+
+.minimizeDetails.open .rectContent {
+  height: auto;
+}
+
+.minimizeDetails.open .rectContent .detailsBtn {
+  position: absolute;
+  bottom: 20px;
+  top: unset;
+}
+
+/* Tracking History */
+.trackingTitle {
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 28px;
+  padding-bottom: 4px;
+}
+
+.progressTrackerVert {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+  padding: 0px 0px;
+}
+
+.circleVert {
+  position: absolute;
+  height: 13px;
+  width: 13px;
+  background-color: #f2f1eb;
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 1;
+  top: 10px;
+  margin-left: 7px;
+  /* left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto; */
+}
+
+.progressStepVert {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  /* min-width: 50%; */
+}
+
+.progressStepVert:not(:last-child):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 61px;
+  width: 3px;
+  height: 100%;
+  z-index: 0;
+}
+
+.progressStepVert:after {
+  background-color: #0e67b5;
+}
+
+.progressStepVert p {
+  font-size: 12px;
+}
+
+.labelLeftVert {
+  display: inline-block;
+  width: 49px;
+  height: 54px;
+  line-height: 18px;
+  vertical-align: text-top;
+}
+
+.labelVert {
+  display: inline-block;
+  width: 206px;
+  height: 40px;
+  line-height: 18px;
+  vertical-align: text-top;
+  margin-left: 30px;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.darkBlue {
+  color: #0e67b5;
+}
+.form{
+  padding-top: 70px;
+}
+/* .button{
+  padding-top:70px;
+} */
+
+.hide {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .trackingInfo .buttons {
+    width: 950px;
+    margin: auto;
+    padding-bottom: 10px;
+    padding-top: 40px;
+  }
+
+  .rect {
+    width: 950px;
+    height: auto;
+  }
+
+  .rectContent {
+    padding: 30px;
+    position: relative;
+  }
+
+  .trackingInfo p {
+    font-size: 22px;
+  }
+
+  .penIcon {
+    left: 20px !important;
+  }
+
+  .detailsBtn {
+    position: absolute;
+    top: auto;
+    bottom: 20px;
+    font-size: 22px !important;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .rightDesk {
+    float: right;
+    text-align: right;
+  }
+
+  .leftDesk {
+    float: left;
+  }
+
+  /* Tracking Display */
+  .shipmentHistory {
+    display: block;
+  }
+
+  .progressTracker {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 40px 90px;
+  }
+
+  .progressStep {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-width: 50%;
+  }
+
+  .progressStep.completed:after {
+    background-color: #2b2c34;
+  }
+
+  .progressStep.delivered:after {
+    background-color: #18923a;
+  }
+
+  .progressStep:not(:last-child):after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    bottom: 12px;
+    right: -14px;
+    width: 100%;
+    height: 10px;
+    z-index: 0;
+  }
+
+  .progressStep:after {
+    background-color: #f2f1eb;
+  }
+
+  .circle {
+    height: 25px;
+    width: 25px;
+    background-color: #f2f1eb;
+    top: 0px;
+  }
+
+  .progressStep.completed .circle {
+    background-color: #2b2c34;
+  }
+
+  .progressStep.active .circle {
+    position: relative;
+    background-color: #2b2c34;
+    z-index: 100;
+  }
+
+  .progressStep.delivered .circle {
+    background-color: #18923a;
+  }
+
+  .progressStep.completed .label {
+    margin-top: 0;
+    width: 130px;
+    margin-left: -50px;
+    text-align: center;
+  }
+
+  .progressStep.delivered .label p {
+    color: #18923a;
+  }
+
+  .progressStep.active .label {
+    margin-top: 0;
+    width: 130px;
+    margin-left: -50px;
+    text-align: center;
+  }
+
+  .progressStep.delivered .label {
+    margin-top: 0;
+    width: 130px;
+    margin-left: -50px;
+    text-align: center;
+  }
+
+  .label p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .mapImg {
+    /* width: 827px; */
+    height: 247px;
+    margin-top: 0;
+  }
+
+  /* Tracking History */
+
+  .circleVert {
+    height: 22px;
+    width: 22px;
+    top: 22px;
+    margin-left: 0;
+  }
+
+  .progressStepVert:not(:last-child):after {
+    top: 27px;
+    left: 108px;
+    width: 6px;
+  }
+
+  .progressStepVert p {
+    font-size: 20px;
+  }
+
+  .labelLeftVert {
+    width: 100px;
+    height: 67px;
+    line-height: 30px;
+    margin-bottom: 36px;
+  }
+
+  .labelVert {
+    width: 676px;
+    height: 67px;
+    line-height: 30px;
+    margin-left: 60px;
+    margin-bottom: 36px;
+  }
+
+  .pendingInfo {
+    padding-top: 90px;
+    padding-bottom: 4px;
+    color: #0e67b5 !important;
+    font-weight: 600;
+  }
+}
