@@ -1,0 +1,27 @@
+.Collapsible{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+  }
+
+  .card-body{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+  }
+
+  .btn.btn-link{
+    background-color: black;
+    color: white;
+  }
