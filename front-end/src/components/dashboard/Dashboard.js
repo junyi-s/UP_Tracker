@@ -53,7 +53,7 @@ class Dashboard extends Component {
             {this.state.data.map((val, index) => {
               console.log(val)
               console.log(this.state.data);
-              return <TrackingInfoDisplay details={val} />;
+              return <TrackingInfoDisplay details={val} pack={index + 1}/>;
             })}
           </div>
         );

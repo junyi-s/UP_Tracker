@@ -171,7 +171,7 @@ const TrackingInfoDisplay = (props) => {
         <div className="rectContent">
           <div className="leftDesk">
             <p>
-              Package
+              {`Package ${props.pack}`}
               <FaPen
                 className="penIcon"
                 style={{
