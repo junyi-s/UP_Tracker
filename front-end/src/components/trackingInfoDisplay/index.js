@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { format, set } from "date-fns";
 
-const TrackingInfo = (props) => {
+const TrackingInfoDisplay = (props) => {
   const [openDetail, setOpenDetail] = useState(false);
   const [status, setStatus] = useState(null);
 
@@ -94,16 +94,6 @@ const TrackingInfo = (props) => {
       localStorage.setItem('packages', JSON.stringify(old_data));
       alert('Package was saved!')
     }
-    else if (localStorage.getItem('packages').length == 0) {
-      console.log("hey")
-      localStorage.setItem('packages', '[]');
-      var old_data = JSON.parse(localStorage.getItem('packages'));
-        old_data.push(new_tracking);
-
-        //save the old and new data to local storage
-        localStorage.setItem('packages', JSON.stringify(old_data));
-        alert('Package was saved!') 
-    }
     else {
       for (var i = 0; i < JSON.parse(localStorage.getItem('packages')).length; i++) {
         if (JSON.parse(localStorage.getItem('packages'))[i] == new_tracking) {
@@ -124,8 +114,33 @@ const TrackingInfo = (props) => {
     }
   }
 
-  function refreshPage() {
+  function removeTrack() {
+    let num = props.details.tracking_number;
+    let packagesDisplay = JSON.parse(localStorage.getItem('packages'));
+    for (let i = 0; i<packagesDisplay.length; i++){
+      if (packagesDisplay[i] === num) {
+        packagesDisplay.splice(i, 1);
+        var old_data = packagesDisplay;
+        localStorage.removeItem('packages')
+
+        localStorage.setItem('packages', JSON.stringify(old_data));
+        break;
+      }
+    }
+
     window.location.reload(false);
+    
+    // for (var i = 0; i < JSON.parse(localStorage.getItem('packages')).length; i++) {
+    //   if (JSON.parse(localStorage.getItem('packages'))[i] == num) {
+    //     // alert('Error. Package has already been saved!');
+    //     packagesDisplay = JSON.parse(localStorage.getItem('packages')).splice(i, 1);
+    //     JSON.parse(localStorage.removeItem('packages'))
+    //     JSON.parse(localStorage.setItem('packages', packagesDisplay))
+
+
+    //     // window.location.reload(false);
+    //   }
+    // }
   }
 
   return (
@@ -133,18 +148,7 @@ const TrackingInfo = (props) => {
       {/* Buttons on top of the tracking info */}
       <div className="buttons">
         <div className="left">
-          <button
-            style={{
-              position: "relative",
-              top: "2px",
-              left: "3px",
-              backgroundColor: "green",
-              borderRadius: "12px",
-            }}
-            onClick={save}
-          >
-            Save
-          </button>
+          
         </div>
         <div className="right">
           <button
@@ -155,7 +159,7 @@ const TrackingInfo = (props) => {
               backgroundColor: "red",
               borderRadius: "12px",
             }}
-            onClick={refreshPage}
+            onClick={removeTrack}
           >
             Remove
           </button>
@@ -380,4 +384,4 @@ const TrackingInfo = (props) => {
     </div>
   );
 };
-export default TrackingInfo;
+export default TrackingInfoDisplay;
