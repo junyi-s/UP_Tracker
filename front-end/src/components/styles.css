@@ -43,3 +43,23 @@ a.footer-link:hover {
 .displayPackages {
     text-align: initial !important;
 }
+/* .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+} */
+
+.navbar-light .navbar-toggler {
+    /* border: 0px  purple; */
+    size: 20% !important;
+    width:10%;
+    height: auto;
+    top:0;
+    /* left: -5%; */
+    left: -3%;
+    position: relative; 
+    padding-top: 2%;
+    padding-bottom: 2%;
+    /* z-index: 1; */
+}
+.navbar-toggler{
+    size:20%;
+}
