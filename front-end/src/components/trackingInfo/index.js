@@ -5,7 +5,6 @@ import {
   FaTimes,
   FaChevronDown,
   FaChevronUp,
-  FaPen,
 } from "react-icons/fa";
 import { format, set } from "date-fns";
 
@@ -168,16 +167,6 @@ const TrackingInfo = (props) => {
           <div className="leftDesk">
             <p>
               Package
-              <FaPen
-                className="penIcon"
-                style={{
-                  position: "relative",
-                  top: "2px",
-                  left: "8px",
-                  color: "#2B2C34",
-                  // padding: "20px",
-                }}
-              />
             </p>
 
             {/* Mobile view */}
@@ -197,7 +186,7 @@ const TrackingInfo = (props) => {
                   ? "Delivered"
                   : props.details.expected_delivery
                     ? format(
-                      new Date(props.details.expected_delivery + "EST"),
+                      new Date(props.details.expected_delivery),
                       "MMM d"
                     )
                     : "N/A"}

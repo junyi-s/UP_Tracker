@@ -201,7 +201,7 @@ const TrackingInfoDisplay = (props) => {
                   ? "Delivered"
                   : props.details.expected_delivery
                     ? format(
-                      new Date(props.details.expected_delivery + "EST"),
+                      new Date(props.details.expected_delivery),
                       "MMM d"
                     )
                     : "N/A"}
