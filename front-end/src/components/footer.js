@@ -1,7 +1,6 @@
 import React from "react"
 import './styles.css'
 import {Col, Row} from "react-bootstrap";
-import {BrowserRouter, Link} from 'react-router-dom';
 
 const Footer = () => (
   <div className="footer">
@@ -10,7 +9,7 @@ const Footer = () => (
         <a href="https://github.com/junyi-s/UP_Tracker" target="_blank" class = "footer-link">GitHub</a>
       </Col>
       <Col>
-        <a href="https://u-package-tracker.atlassian.net/l/c/ip6C681r" target="_blank" class = "footer-link">How to Use</a>
+        <a href="https://u-package-tracker.atlassian.net/l/c/ip6C681r" target="_blank" class = "footer-link">Run A Local Site</a>
       </Col>
       <Col>
         <a href="/about" class = "footer-link">Let's Chat!</a>

@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Help from './pages/help';
 import Home from './pages/home';
 import About from './pages/about';
 import Login from './pages/login';
@@ -16,6 +17,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Logins from './components/auth/Login'
 import Register from './components/auth/Register';
+import Accordion from './components/Accordion';
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -46,6 +48,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/help">
+          <Accordion />;
         </Route>
         {/* <Route path="/login">
           <Login />
