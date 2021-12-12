@@ -17,6 +17,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Logins from './components/auth/Login'
 import Register from './components/auth/Register';
+import Accordion from './components/Accordion';
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -49,7 +50,7 @@ function App() {
           <Home />
         </Route>
         <Route path="/help">
-          <Help />
+          <Accordion />;
         </Route>
         {/* <Route path="/login">
           <Login />
