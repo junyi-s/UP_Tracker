@@ -23,7 +23,7 @@ const Container = styled.div`
 
 //Styling for main topic for each dropdown
 const Wrap = styled.div`
-  background: #272727;
+  background: #0e67b5;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -31,6 +31,7 @@ const Wrap = styled.div`
   width: 100%;
   text-align: center;
   cursor: pointer;
+  border-top: 1px solid #fff;
 
   h1 {
     padding: 2rem;
@@ -43,16 +44,17 @@ const Wrap = styled.div`
 `;
 // Styling for Answers to each dropdown
 const Dropdown = styled.div`
-  background: #1c1c1c;
-  color: #00ffb9;
+  background: #0e67b5;
+  color: #fff;
   width: 100%;
   height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #00ffb9;
-  border-top: 1px solid #00ffb9;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
 
   p {
     font-size: 20px;
