@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import TrackingInfo from "../../components/trackingInfo";
 import axios from "axios";
 import {Container, Col, Row} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
   const [value, changevalue] = useState("");
@@ -45,15 +45,22 @@ const Home = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder="Enter tracking number"
+                  style={{
+                    borderRadius: "3px"
+                  }}
                 />
               </header>
             </Col>
             <Col>
-              <header classname= "button" style={{
-              paddingTop:"70px"
-            }}>
-                <button 
-                onClick={change}>Submit</button>
+              <header classname= "button">
+                <button class = "b1"
+                  style={{
+                    borderRadius: "3px",
+                    marginTop: "4.4rem"
+                  }}
+                  onClick={change}>
+                  Submit
+                </button>
               </header>
             </Col>
           </Row>

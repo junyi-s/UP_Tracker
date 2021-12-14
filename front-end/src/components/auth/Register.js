@@ -132,17 +132,17 @@ class Register extends Component {
                 <span className="red-text">{errors.password2}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <button className = "b1"
                   style={{
                     width: "150px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem",
                     color:"white",
-                    background:"blue"
+                    background:"#0e67b5",
+                    transition: "all 400ms"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Sign up
                 </button>

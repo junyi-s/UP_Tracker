@@ -104,10 +104,11 @@ class Dashboard extends Component {
                 marginTop: "25px",
                 marginBottom: "90px",
                 color: "white",
-                background: "blue",
+                background:"#0e67b5",
+                transition: "all 400ms"
               }}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="b1"
             >
               Logout
             </button>

@@ -12,6 +12,7 @@
  .navbar-nav {
     position: absolute;
     width: auto;
+    height: auto;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -49,17 +50,28 @@ a.footer-link:hover {
 
 .navbar-light .navbar-toggler {
     /* border: 0px  purple; */
-    size: 20% !important;
+    size: 10% !important;
     width:10%;
     height: auto;
     top:0;
     /* left: -5%; */
-    left: -3%;
+    left: -20px;
     position: relative; 
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     /* z-index: 1; */
 }
-.navbar-toggler{
-    size:20%;
+
+.navbar-brand{
+    top:5px;
 }
+
+.navbar.fixed-top {
+    height: 7%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/* .navbar-nav{
+      top:0.7em;
+  } */

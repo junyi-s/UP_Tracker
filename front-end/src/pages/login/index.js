@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Form, Col, Row} from "react-bootstrap";
 import './style.css'
 // import Header from '../../components/BootstrapNavbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 import Logins from '../../components/auth/Login'
 const Button = styled.button`
